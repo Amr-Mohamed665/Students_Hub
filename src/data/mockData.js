@@ -115,6 +115,7 @@ export const missionObjectives = [
     progress: 75,
     status: 'active',
     icon: 'GraduationCap',
+    priority: 'high',
   },
   {
     id: 'obj_002',
@@ -123,6 +124,7 @@ export const missionObjectives = [
     progress: 60,
     status: 'active',
     icon: 'Code',
+    priority: 'high',
   },
   {
     id: 'obj_003',
@@ -131,6 +133,7 @@ export const missionObjectives = [
     progress: 45,
     status: 'active',
     icon: 'Brain',
+    priority: 'medium',
   },
   {
     id: 'obj_004',
@@ -139,6 +142,7 @@ export const missionObjectives = [
     progress: 30,
     status: 'active',
     icon: 'Sparkles',
+    priority: 'medium',
   },
   {
     id: 'obj_005',
@@ -147,6 +151,7 @@ export const missionObjectives = [
     progress: 20,
     status: 'active',
     icon: 'BookOpen',
+    priority: 'low',
   },
 ];
 

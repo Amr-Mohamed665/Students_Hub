@@ -28,13 +28,19 @@
   gap: var(--space-3);
 }
 
-@media (min-width: 768px) {
-  .pageHeader {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-  }
+.pageTitle {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.headerBtns {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
 }
 
 .searchRow {
@@ -44,18 +50,6 @@
 .searchBar {
   width: 100%;
   max-width: 480px;
-}
-
-.subtitle {
-  font-size: var(--fs-sm);
-  color: var(--text-secondary);
-}
-
-.headerBtns {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  flex-shrink: 0;
 }
 
 .clearBtn {

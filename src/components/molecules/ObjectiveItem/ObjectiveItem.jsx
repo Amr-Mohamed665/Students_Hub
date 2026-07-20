@@ -60,11 +60,9 @@ export default function ObjectiveItem({ objective, index = 0, onToggleComplete, 
           <div className={styles.textContainer}>
             <div className={styles.titleRow}>
               <h4 className={`${styles.title} ${isCompleted ? styles.completedTitle : ''}`}>{title}</h4>
-              {priority && (
-                <Badge variant={priorityVariants[priority] || 'default'} className={styles.priorityBadge}>
-                  {priority}
-                </Badge>
-              )}
+              <Badge variant={priorityVariants[priority] || priorityVariants['medium']} className={styles.priorityBadge}>
+                {priority || 'medium'}
+              </Badge>
             </div>
             <div className={styles.subtitle}>{subtitle}</div>
           </div>

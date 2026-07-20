@@ -10,12 +10,12 @@ import styles from './MissionObjectives.module.css';
 
 export default function MissionObjectives() {
   const [objectives, setObjectives] = useState(() => {
-    const stored = localStorage.getItem('students_hub_objectives');
+    const stored = localStorage.getItem('students_hub_objectives_v2');
     return stored ? JSON.parse(stored) : missionObjectives;
   });
 
   useEffect(() => {
-    localStorage.setItem('students_hub_objectives', JSON.stringify(objectives));
+    localStorage.setItem('students_hub_objectives_v2', JSON.stringify(objectives));
   }, [objectives]);
 
   const [activeTab, setActiveTab] = useState('active');
@@ -176,9 +176,7 @@ export default function MissionObjectives() {
         <div className={styles.leftCol}>
           
           <div className={styles.pageHeader}>
-            <div className={styles.headerInfo}>
-              <p className={styles.subtitle}>Track your educational targets and flight metrics.</p>
-            </div>
+            <h2 className={styles.pageTitle}>Track your educational targets and flight metrics.</h2>
             <div className={styles.headerBtns}>
               {objectives.length > 0 && (
                 <button className={styles.clearBtn} onClick={handleClearAll}>
