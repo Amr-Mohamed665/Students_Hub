@@ -1,4 +1,4 @@
-import styles from './GlowOrb.module.css';
+﻿import styles from './GlowOrb.module.css';
 
 export default function GlowOrb({
   color = 'purple',

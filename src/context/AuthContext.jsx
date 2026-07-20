@@ -1,10 +1,10 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+﻿import { createContext, useContext, useState, useEffect } from 'react';
 import { mockUser } from '../data/mockData';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  
+
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem('learnova_user_profile');
     return stored ? JSON.parse(stored) : mockUser;
@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
   });
 
   useEffect(() => {
-    
+
     localStorage.removeItem('learnova_user');
     localStorage.removeItem('learnova_authenticated');
   }, []);

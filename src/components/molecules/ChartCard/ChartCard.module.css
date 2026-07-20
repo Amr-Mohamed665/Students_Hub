@@ -1,4 +1,4 @@
-.card {
+﻿.card {
   background: var(--bg-surface-glass);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));

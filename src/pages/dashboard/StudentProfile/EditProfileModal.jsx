@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from '../../../components/atoms/Modal/Modal';
 import styles from './EditProfileModal.module.css';

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Plus, X, Trash2 } from 'lucide-react';
 import TabGroup from '../../../components/molecules/TabGroup/TabGroup';
 import ObjectiveItem from '../../../components/molecules/ObjectiveItem/ObjectiveItem';
@@ -115,14 +115,14 @@ export default function MissionObjectives() {
 
   return (
     <div className={styles.container}>
-      
+
       <Modal
         isOpen={showModal}
         onClose={closeModal}
         title={editingTask ? 'Edit Task' : 'Add New Task'}
         maxWidth="480px"
       >
-        
+
         <form onSubmit={handleAddTask} className={styles.modalForm}>
           <div className={styles.formGroup}>
             <label className={styles.formLabel}>Task Title *</label>
@@ -174,7 +174,7 @@ export default function MissionObjectives() {
 
       <div className={styles.layoutGrid}>
         <div className={styles.leftCol}>
-          
+
           <div className={styles.pageHeader}>
             <h2 className={styles.pageTitle}>Track your educational targets and flight metrics.</h2>
             <div className={styles.headerBtns}>

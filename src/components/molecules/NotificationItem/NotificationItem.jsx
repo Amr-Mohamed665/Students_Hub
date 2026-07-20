@@ -1,10 +1,9 @@
-import * as Icons from 'lucide-react';
+﻿import * as Icons from 'lucide-react';
 import styles from './NotificationItem.module.css';
 
 export default function NotificationItem({ notification, onClick }) {
   const { id, title, description, time, read, icon, color } = notification;
 
-  
   const LucideIcon = Icons[icon] || Icons.Bell;
 
   return (
@@ -15,7 +14,7 @@ export default function NotificationItem({ notification, onClick }) {
       <div
         className={styles.iconBox}
         style={{
-          backgroundColor: `${color}25`, 
+          backgroundColor: `${color}25`,
           color: color,
         }}
       >

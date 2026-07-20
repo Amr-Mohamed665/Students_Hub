@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../../organisms/Sidebar/Sidebar';
 import TopNav from '../../organisms/TopNav/TopNav';
@@ -19,10 +19,9 @@ export default function DashboardLayout() {
 
   return (
     <div className={styles.layout}>
-      
+
       <StarField count={60} />
 
-      
       <Sidebar
         isOpen={mobileSidebarOpen}
         toggleMobile={toggleMobileSidebar}
@@ -30,12 +29,10 @@ export default function DashboardLayout() {
         toggleCollapse={toggleSidebarCollapse}
       />
 
-      
       {mobileSidebarOpen && (
         <div className={styles.backdrop} onClick={toggleMobileSidebar} />
       )}
 
-      
       <div className={`${styles.mainContent} ${sidebarCollapsed ? styles.collapsedContent : ''}`}>
         <TopNav
           isCollapsed={sidebarCollapsed}

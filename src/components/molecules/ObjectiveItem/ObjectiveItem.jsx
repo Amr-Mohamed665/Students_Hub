@@ -1,4 +1,4 @@
-import * as Icons from 'lucide-react';
+﻿import * as Icons from 'lucide-react';
 import { Circle, CheckCircle2, Trash2, Pencil } from 'lucide-react';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
 import Badge from '../../atoms/Badge/Badge';
@@ -38,7 +38,7 @@ export default function ObjectiveItem({ objective, index = 0, onToggleComplete, 
 
   return (
     <div className={`${styles.item} ${isCompleted ? styles.completedItem : ''}`}>
-      
+
       <button
         className={styles.toggleBtn}
         onClick={() => onToggleComplete && onToggleComplete(id)}

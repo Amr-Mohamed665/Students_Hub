@@ -1,4 +1,4 @@
-.card {
+﻿.card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
   height: 100px;
   border-radius: 50%;
   position: relative;
-  box-shadow: 
+  box-shadow:
     inset -10px -10px 30px rgba(0, 0, 0, 0.9),
     inset 10px 10px 30px rgba(255, 255, 255, 0.2);
   transition: all var(--transition-slow);
@@ -91,7 +91,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background-image: 
+  background-image:
     radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
     repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 10px);
   opacity: 0.6;

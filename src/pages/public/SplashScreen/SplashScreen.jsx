@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Atom, Bot, Target, Library, Calendar } from 'lucide-react';
 import styles from './SplashScreen.module.css';
@@ -8,7 +8,7 @@ export default function SplashScreen() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -32,18 +32,17 @@ export default function SplashScreen() {
         } else {
           navigate('/landing');
         }
-      }, 300); 
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [progress, navigate]);
 
   return (
     <div className={styles.container}>
-      
+
       <div className={styles.ambientGlow1} />
       <div className={styles.ambientGlow2} />
 
-      
       <div className={styles.logoSection}>
         <div className={styles.outerRing}>
           <div className={styles.innerRing}>
@@ -56,7 +55,6 @@ export default function SplashScreen() {
         <p className={styles.tagline}>Your AI-Powered Learning Universe</p>
       </div>
 
-      
       <div className={styles.progressContainer}>
         <div className={styles.statusText}>INITIALIZING LEARNING MATRIX...</div>
         <div className={styles.progressRow}>
@@ -67,7 +65,6 @@ export default function SplashScreen() {
         </div>
       </div>
 
-      
       <div className={styles.modulesFooter}>
         <div className={styles.moduleItem}>
           <div className={styles.moduleIconBox}>

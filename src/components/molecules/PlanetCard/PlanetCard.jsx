@@ -1,4 +1,4 @@
-import styles from './PlanetCard.module.css';
+﻿import styles from './PlanetCard.module.css';
 
 const sphereClassMap = {
   react: styles.reactSphere,
@@ -21,16 +21,15 @@ export default function PlanetCard({ category, onClick }) {
       style={{ '--planet-color': color }}
     >
       <div className={styles.sphereContainer}>
-        
+
         <div className={styles.atmosphere} />
-        
-        
+
         <div className={`${styles.sphere} ${sphereClass}`}>
-          
+
           <div className={styles.texture} />
         </div>
       </div>
-      
+
       <div className={styles.info}>
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.resources}>{resources} Resources</p>

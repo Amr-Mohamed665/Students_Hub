@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer,
   BarChart, Bar,
@@ -23,7 +23,7 @@ export default function PerformanceObservatory() {
 
   return (
     <div className={styles.container}>
-      
+
       <div className={styles.observatoryHeader}>
         <div>
           <h2 className={styles.title}>This Week</h2>
@@ -31,7 +31,6 @@ export default function PerformanceObservatory() {
         </div>
       </div>
 
-      
       <div className={styles.statsGrid}>
         {performanceStats.map((stat, index) => {
           const LucideIcon = Icons[stat.icon] || Icons.TrendingUp;
@@ -50,9 +49,8 @@ export default function PerformanceObservatory() {
         })}
       </div>
 
-      
       <div className={styles.chartsGrid}>
-        
+
         <ChartCard
           title="Study Time Trend"
           subtitle="Hours completed daily during this timeline"
@@ -81,7 +79,6 @@ export default function PerformanceObservatory() {
           </ResponsiveContainer>
         </ChartCard>
 
-        
         <ChartCard
           title="Lessons Completed"
           subtitle="Total modules finalized per week"
@@ -109,7 +106,6 @@ export default function PerformanceObservatory() {
           </ResponsiveContainer>
         </ChartCard>
 
-        
         <ChartCard
           title="Skill Radar Mapping"
           subtitle="Current clearance level per technology"

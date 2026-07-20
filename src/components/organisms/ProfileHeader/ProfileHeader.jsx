@@ -1,4 +1,4 @@
-import { Edit3 } from 'lucide-react';
+﻿import { Edit3 } from 'lucide-react';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Button from '../../atoms/Button/Button';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
@@ -11,7 +11,7 @@ export default function ProfileHeader({ user, onEdit }) {
 
   return (
     <div className={styles.headerCard}>
-      
+
       <div className={styles.avatarSection}>
         <Avatar
           src={user.avatar}
@@ -30,7 +30,6 @@ export default function ProfileHeader({ user, onEdit }) {
         </Button>
       </div>
 
-      
       <div className={styles.profileInfo}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-4)' }}>
           <div className={styles.infoBlock}>
@@ -39,8 +38,7 @@ export default function ProfileHeader({ user, onEdit }) {
             <div className={styles.location}>{user.location}</div>
             <p className={styles.bio}>{user.bio}</p>
           </div>
-          
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-4)' }}>
             <div className={styles.statsGrid}>
               <div className={styles.statItem}>
@@ -61,7 +59,6 @@ export default function ProfileHeader({ user, onEdit }) {
               </div>
             </div>
 
-            
             <div className={styles.xpProgressSection}>
               <div className={styles.xpDetails}>
                 <span className={styles.xpLabel}>Next Level</span>

@@ -1,4 +1,4 @@
-.layout {
+﻿.layout {
   min-height: 100vh;
   background-color: var(--bg-body);
   color: var(--text-primary);
@@ -44,7 +44,7 @@
   .mainContent {
     padding-left: 0 !important;
   }
-  
+
   .backdrop {
     display: block;
   }

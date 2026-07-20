@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+﻿import { Link, useLocation } from 'react-router-dom';
 import { Menu, Bell } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 import { useNotifications } from '../../../context/NotificationContext';
@@ -44,7 +44,7 @@ export default function TopNav({ isCollapsed, toggleMobile }) {
 
       <div className={styles.rightSection}>
         <SearchBar className={styles.search} placeholder="Search resources..." glass />
-        
+
         <div className={styles.actions}>
           <Link to="/dashboard/notifications" className={styles.actionBtn} aria-label="Notifications">
             <Bell size={18} />

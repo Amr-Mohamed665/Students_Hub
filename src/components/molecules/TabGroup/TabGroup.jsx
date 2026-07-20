@@ -1,9 +1,9 @@
-import styles from './TabGroup.module.css';
+﻿import styles from './TabGroup.module.css';
 
 export default function TabGroup({ tabs, activeTab, onTabChange, variant = 'pill', className = '' }) {
   return (
     <div className={`${styles.container} ${className}`}>
-      {/* Mobile Dropdown Select */}
+
       <select
         className={`${styles.selectMenu} ${variant === 'flat' ? styles.flatSelect : ''}`}
         value={activeTab}
@@ -16,7 +16,6 @@ export default function TabGroup({ tabs, activeTab, onTabChange, variant = 'pill
         ))}
       </select>
 
-      {/* Desktop Tabs */}
       <div className={`${styles.tabGroup} ${variant === 'flat' ? styles.flat : ''}`}>
         {tabs.map((tab) => (
           <button

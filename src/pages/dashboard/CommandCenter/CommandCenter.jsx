@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Settings, Bell, Shield, Palette, Database, Save, Trash2, Key, Download, HardDrive, ShieldAlert } from 'lucide-react';
 import Button from '../../../components/atoms/Button/Button';
 import styles from './CommandCenter.module.css';
@@ -6,7 +6,6 @@ import styles from './CommandCenter.module.css';
 export default function CommandCenter() {
   const [activeTab, setActiveTab] = useState('general');
 
-  
   const storedConfig = JSON.parse(localStorage.getItem('students_hub_config') || '{}');
 
   const [particleBgs, setParticleBgs] = useState(storedConfig.particleBgs !== undefined ? storedConfig.particleBgs : true);
@@ -49,7 +48,7 @@ export default function CommandCenter() {
   return (
     <div className={styles.container}>
       <div className={styles.layoutGrid}>
-        
+
         <div className={styles.leftCol}>
           <div className={styles.sideMenu}>
             {[
@@ -75,7 +74,6 @@ export default function CommandCenter() {
           </div>
         </div>
 
-        
         <div className={styles.rightCol}>
           <div className={styles.settingsCard}>
             {activeTab === 'general' && (
@@ -305,7 +303,6 @@ export default function CommandCenter() {
               </div>
             )}
 
-            
             <div className={styles.footer}>
               <Button variant="primary" icon={<Save size={16} />} onClick={handleSave}>
                 Apply Parameters

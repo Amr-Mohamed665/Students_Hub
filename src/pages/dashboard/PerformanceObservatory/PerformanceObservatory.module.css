@@ -1,4 +1,4 @@
-.container {
+﻿.container {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -61,7 +61,7 @@
   .chartsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .fullWidthChart {
     grid-column: span 2;
   }

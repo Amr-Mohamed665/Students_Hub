@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Award, Shield, CheckCircle, Calendar, Link as LinkIcon } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 import ProfileHeader from '../../../components/organisms/ProfileHeader/ProfileHeader';
@@ -24,10 +24,9 @@ export default function StudentProfile() {
 
   return (
     <div className={styles.container}>
-      
+
       <ProfileHeader user={user} onEdit={() => setIsEditOpen(true)} />
 
-      
       <TabGroup
         tabs={[
           { id: 'about', label: 'About' },
@@ -42,7 +41,6 @@ export default function StudentProfile() {
         className={styles.tabs}
       />
 
-      
       <div className={styles.tabContent}>
         {activeTab === 'about' && (
           <div className={styles.aboutGrid}>

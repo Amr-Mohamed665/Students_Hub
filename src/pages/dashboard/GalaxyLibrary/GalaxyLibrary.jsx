@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Play, FileText, BookOpen, Clock, Star, X, ExternalLink, Search } from 'lucide-react';
 import { libraryCategories, libraryResources } from '../../../data/mockData';
 import PlanetCard from '../../../components/molecules/PlanetCard/PlanetCard';
@@ -17,7 +17,6 @@ export default function GalaxyLibrary() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  
   const allResources = Object.entries(libraryResources).flatMap(([catId, resList]) => {
     const category = categories.find((c) => c.id === catId);
     const categoryName = category ? category.name : catId;
@@ -30,7 +29,6 @@ export default function GalaxyLibrary() {
     }));
   });
 
-  
   const filteredCategories = categories.filter((cat) => {
     let matchesTab = true;
     if (activeTab === 'frameworks') matchesTab = ['react', 'nextjs'].includes(cat.id);
@@ -40,7 +38,6 @@ export default function GalaxyLibrary() {
     return matchesTab;
   });
 
-  
   const searchedResources = searchQuery.trim()
     ? allResources.filter((res) => {
         const query = searchQuery.toLowerCase();
@@ -67,7 +64,7 @@ export default function GalaxyLibrary() {
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
-              
+
               if (e.target.value.trim()) setSelectedCategory(null);
             }}
             className={styles.search}
@@ -76,7 +73,6 @@ export default function GalaxyLibrary() {
         </div>
       </div>
 
-      
       {!searchQuery.trim() ? (
         <>
           <TabGroup
@@ -107,7 +103,6 @@ export default function GalaxyLibrary() {
             ))}
           </div>
 
-          
           {selectedCategory && (
             <div className={styles.resourcePanel}>
               <div className={styles.panelHeader}>
@@ -165,7 +160,6 @@ export default function GalaxyLibrary() {
             </div>
           )}
 
-          
           {!selectedCategory && (
             <div className={styles.featuredSection}>
               <div className={styles.featuredHeader}>
@@ -202,7 +196,7 @@ export default function GalaxyLibrary() {
           )}
         </>
       ) : (
-        
+
         <div className={styles.resourcePanel}>
           <div className={styles.panelHeader}>
             <div className={styles.panelTitle}>

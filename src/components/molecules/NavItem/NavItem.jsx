@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+﻿import { NavLink } from 'react-router-dom';
 import styles from './NavItem.module.css';
 
 export default function NavItem({ icon, label, path, collapsed = false, onNavigate }) {

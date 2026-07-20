@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+﻿import { useState, useEffect, useMemo } from 'react';
 import { Plus, Pin, PinOff, Pencil, Trash2, StickyNote } from 'lucide-react';
 import Modal from '../../../components/atoms/Modal/Modal';
 import SearchBar from '../../../components/atoms/SearchBar/SearchBar';
@@ -74,7 +74,6 @@ export default function Notes() {
   const [showModal, setShowModal] = useState(false);
   const [editingNote, setEditingNote] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
-
 
   const [formTitle, setFormTitle] = useState('');
   const [formContent, setFormContent] = useState('');
@@ -166,7 +165,7 @@ export default function Notes() {
 
   return (
     <div className={styles.container}>
-      {/* Header */}
+
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <p className={styles.subtitle}>
@@ -188,7 +187,6 @@ export default function Notes() {
         </div>
       </div>
 
-      {/* Notes Grid */}
       {filteredNotes.length > 0 ? (
         <div className={styles.grid}>
           {filteredNotes.map((note) => (
@@ -222,7 +220,6 @@ export default function Notes() {
         </div>
       )}
 
-      {/* Create / Edit Modal */}
       <Modal
         isOpen={showModal}
         onClose={closeModal}
@@ -280,7 +277,6 @@ export default function Notes() {
         </form>
       </Modal>
 
-      {/* Delete Confirmation Modal */}
       <Modal
         isOpen={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}

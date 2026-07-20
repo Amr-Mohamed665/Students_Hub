@@ -1,4 +1,4 @@
-.container {
+﻿.container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -225,7 +225,7 @@
   .input {
     padding: var(--space-2) var(--space-3);
     font-size: var(--fs-xs);
-    min-width: 0; /* allow it to shrink freely */
+    min-width: 0;
   }
 
   .suggestions {

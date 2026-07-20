@@ -1,4 +1,4 @@
-.container {
+﻿.container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -106,7 +106,6 @@
   height: 4px;
 }
 
-/* Note colors */
 .card_purple .cardAccent { background: var(--primary-purple); }
 .card_cyan .cardAccent { background: var(--neon-cyan); }
 .card_blue .cardAccent { background: var(--primary-blue); }
@@ -262,7 +261,6 @@
   margin: 0;
 }
 
-/* Modal Form Styles */
 .form {
   display: flex;
   flex-direction: column;
@@ -385,7 +383,6 @@
   transform: translateY(-1px);
 }
 
-/* Delete confirmation specific */
 .deleteConfirm {
   display: flex;
   flex-direction: column;

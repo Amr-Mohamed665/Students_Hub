@@ -1,4 +1,4 @@
-import styles from './Badge.module.css';
+﻿import styles from './Badge.module.css';
 
 export default function Badge({ children, variant = 'default', dot = false, className = '' }) {
   return (

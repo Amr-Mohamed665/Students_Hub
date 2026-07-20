@@ -1,4 +1,4 @@
-import r001 from '../assets/images/resources/r001-react-whats-new.jpg';
+﻿import r001 from '../assets/images/resources/r001-react-whats-new.jpg';
 import r002 from '../assets/images/resources/r002-mastering-useeffect.jpg';
 import r003 from '../assets/images/resources/r003-react-server-components.jpg';
 import r004 from '../assets/images/resources/r004-state-management.jpg';
@@ -33,7 +33,7 @@ export const mockUser = {
   id: 'usr_001',
   name: 'Amr Mohamed Ali',
   email: 'amr.mohamed@example.com',
-  avatar: null, 
+  avatar: null,
   role: 'student',
   title: 'Frontend Developer | Lifelong Learner',
   location: 'Cairo, Egypt',
