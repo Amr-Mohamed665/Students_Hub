@@ -75,7 +75,7 @@ export default function Notes() {
   const [editingNote, setEditingNote] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
 
-  // form state
+
   const [formTitle, setFormTitle] = useState('');
   const [formContent, setFormContent] = useState('');
   const [formColor, setFormColor] = useState('purple');
@@ -93,7 +93,6 @@ export default function Notes() {
             n.content.toLowerCase().includes(q)
         )
       : notes;
-    // pinned first
     return [...result].sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
   }, [notes, searchQuery]);
 
