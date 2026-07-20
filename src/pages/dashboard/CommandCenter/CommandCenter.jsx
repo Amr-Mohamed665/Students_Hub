@@ -4,22 +4,27 @@ import Button from '../../../components/atoms/Button/Button';
 import styles from './CommandCenter.module.css';
 
 export default function CommandCenter() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState('general');
+  const [isMobile, setIsMobile] = useState(() => {
+    return typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+  });
+  const [activeTab, setActiveTab] = useState(() => {
+    return typeof window !== 'undefined' && window.innerWidth < 768 ? 'menu' : 'general';
+  });
 
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-      if (mobile) {
-        // If transitioning to mobile, show the menu view first
-        setActiveTab('menu');
-      } else {
-        // If transitioning to desktop, make sure activeTab is a valid panel
-        setActiveTab('general');
-      }
+      setIsMobile((prevIsMobile) => {
+        if (prevIsMobile !== mobile) {
+          if (mobile) {
+            setActiveTab('menu');
+          } else {
+            setActiveTab('general');
+          }
+        }
+        return mobile;
+      });
     };
-    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
