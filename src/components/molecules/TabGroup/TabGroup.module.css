@@ -78,7 +78,7 @@
   .selectMenu {
     display: block;
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
     padding: 0.625rem var(--space-4);
     background: var(--bg-surface-glass);
     backdrop-filter: blur(var(--glass-blur));
