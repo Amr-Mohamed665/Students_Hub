@@ -23,9 +23,27 @@
 
 .pageHeader {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .pageHeader {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+}
+
+.searchRow {
+  width: 100%;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 480px;
 }
 
 .subtitle {

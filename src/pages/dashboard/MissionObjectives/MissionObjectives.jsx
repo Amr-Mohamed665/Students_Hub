@@ -4,6 +4,7 @@ import TabGroup from '../../../components/molecules/TabGroup/TabGroup';
 import ObjectiveItem from '../../../components/molecules/ObjectiveItem/ObjectiveItem';
 import OrbitalDisplay from '../../../components/organisms/OrbitalDisplay/OrbitalDisplay';
 import Modal from '../../../components/atoms/Modal/Modal';
+import SearchBar from '../../../components/atoms/SearchBar/SearchBar';
 import { missionObjectives } from '../../../data/mockData';
 import styles from './MissionObjectives.module.css';
 
@@ -22,10 +23,20 @@ export default function MissionObjectives() {
   const [newTitle, setNewTitle] = useState('');
   const [newSubtitle, setNewSubtitle] = useState('');
   const [newPriority, setNewPriority] = useState('medium');
+  const [editingTask, setEditingTask] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleTabChange = (tabId) => setActiveTab(tabId);
 
   const filteredObjectives = objectives.filter((obj) => {
+    const matchesSearch =
+      searchQuery.trim() === '' ||
+      obj.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      obj.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (obj.priority && obj.priority.toLowerCase().includes(searchQuery.toLowerCase()));
+
+    if (!matchesSearch) return false;
+
     if (activeTab === 'completed') return obj.progress >= 100;
     if (activeTab === 'archived') return obj.status === 'archived';
     return obj.progress < 100 && obj.status === 'active';
@@ -35,26 +46,46 @@ export default function MissionObjectives() {
     e.preventDefault();
     if (!newTitle.trim()) return;
 
-    const newTask = {
-      id: `obj_${Date.now()}`,
-      title: newTitle.trim(),
-      subtitle: newSubtitle.trim() || 'Custom task',
-      progress: 0,
-      status: 'active',
-      priority: newPriority,
-      dueDate: null,
-    };
+    if (editingTask) {
+      setObjectives((prev) =>
+        prev.map((obj) =>
+          obj.id === editingTask.id
+            ? {
+                ...obj,
+                title: newTitle.trim(),
+                subtitle: newSubtitle.trim() || 'Custom task',
+                priority: newPriority,
+              }
+            : obj
+        )
+      );
+    } else {
+      const newTask = {
+        id: `obj_${Date.now()}`,
+        title: newTitle.trim(),
+        subtitle: newSubtitle.trim() || 'Custom task',
+        progress: 0,
+        status: 'active',
+        priority: newPriority,
+        dueDate: null,
+      };
 
-    setObjectives((prev) => [newTask, ...prev]);
-    setNewTitle('');
-    setNewSubtitle('');
-    setNewPriority('medium');
-    setShowModal(false);
-    setActiveTab('active');
+      setObjectives((prev) => [newTask, ...prev]);
+    }
+    closeModal();
+  };
+
+  const handleEdit = (task) => {
+    setEditingTask(task);
+    setNewTitle(task.title);
+    setNewSubtitle(task.subtitle);
+    setNewPriority(task.priority || 'medium');
+    setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
+    setEditingTask(null);
     setNewTitle('');
     setNewSubtitle('');
     setNewPriority('medium');
@@ -88,7 +119,7 @@ export default function MissionObjectives() {
       <Modal
         isOpen={showModal}
         onClose={closeModal}
-        title="Add New Task"
+        title={editingTask ? 'Edit Task' : 'Add New Task'}
         maxWidth="480px"
       >
         
@@ -135,7 +166,7 @@ export default function MissionObjectives() {
               Cancel
             </button>
             <button type="submit" className={styles.submitBtn}>
-              <Plus size={14} /> Add Task
+              {editingTask ? 'Save Changes' : <><Plus size={14} /> Add Task</>}
             </button>
           </div>
         </form>
@@ -145,7 +176,9 @@ export default function MissionObjectives() {
         <div className={styles.leftCol}>
           
           <div className={styles.pageHeader}>
-            <p className={styles.subtitle}>Track your educational targets and flight metrics.</p>
+            <div className={styles.headerInfo}>
+              <p className={styles.subtitle}>Track your educational targets and flight metrics.</p>
+            </div>
             <div className={styles.headerBtns}>
               {objectives.length > 0 && (
                 <button className={styles.clearBtn} onClick={handleClearAll}>
@@ -156,6 +189,16 @@ export default function MissionObjectives() {
                 <Plus size={16} /> Add New Task
               </button>
             </div>
+          </div>
+
+          <div className={styles.searchRow}>
+            <SearchBar
+              placeholder="Search tasks by title, description or priority..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              glass
+              className={styles.searchBar}
+            />
           </div>
 
           <TabGroup
@@ -177,6 +220,7 @@ export default function MissionObjectives() {
                   objective={obj}
                   index={index}
                   onToggleComplete={handleToggleComplete}
+                  onEdit={handleEdit}
                   onDelete={handleDelete}
                 />
               ))

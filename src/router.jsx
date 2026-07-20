@@ -16,6 +16,7 @@ import AIStudyCoach from './pages/dashboard/AIStudyCoach/AIStudyCoach';
 import StudentProfile from './pages/dashboard/StudentProfile/StudentProfile';
 import NotificationCenter from './pages/dashboard/NotificationCenter/NotificationCenter';
 import CommandCenter from './pages/dashboard/CommandCenter/CommandCenter';
+import Notes from './pages/dashboard/Notes/Notes';
 
 function RequireAuth({ children }) {
   return children;
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: 'command',
         element: <CommandCenter />,
+      },
+      {
+        path: 'notes',
+        element: <Notes />,
       },
     ],
   },

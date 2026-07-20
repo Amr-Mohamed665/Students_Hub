@@ -14,6 +14,7 @@ export default function ProfileHeader({ user, onEdit }) {
       
       <div className={styles.avatarSection}>
         <Avatar
+          src={user.avatar}
           name={user.name}
           size="xxl"
           glow
