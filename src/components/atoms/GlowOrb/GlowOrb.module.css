@@ -1,0 +1,39 @@
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.purple {
+  background: radial-gradient(circle, var(--primary-purple), transparent);
+}
+
+.blue {
+  background: radial-gradient(circle, var(--primary-blue), transparent);
+}
+
+.cyan {
+  background: radial-gradient(circle, var(--neon-cyan), transparent);
+}
+
+.pink {
+  background: radial-gradient(circle, var(--accent-pink), transparent);
+}
+
+.sm {
+  width: 100px;
+  height: 100px;
+}
+
+.md {
+  width: 200px;
+  height: 200px;
+}
+
+.lg {
+  width: 350px;
+  height: 350px;
+}

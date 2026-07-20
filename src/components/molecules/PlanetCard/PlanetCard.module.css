@@ -1,0 +1,125 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  background: transparent;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-slow);
+  position: relative;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.sphereContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sphere {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    inset -10px -10px 30px rgba(0, 0, 0, 0.9),
+    inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-slow);
+  overflow: hidden;
+}
+
+.atmosphere {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 5px var(--planet-color);
+  opacity: 0.6;
+  transition: all var(--transition-slow);
+  pointer-events: none;
+}
+
+.card:hover .atmosphere {
+  box-shadow: 0 0 45px 12px var(--planet-color);
+  opacity: 0.95;
+}
+
+.card:hover .sphere {
+  transform: scale(1.08) rotate(15deg);
+}
+
+.reactSphere {
+  background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8, #0f172a);
+}
+
+.jsSphere {
+  background: radial-gradient(circle at 30% 30%, #fef08a, #eab308, #1e1b4b);
+}
+
+.cssSphere {
+  background: radial-gradient(circle at 30% 30%, #38bdf8, #0284c7, #0f172a);
+}
+
+.nextSphere {
+  background: radial-gradient(circle at 30% 30%, #e2e8f0, #475569, #0f172a);
+}
+
+.tsSphere {
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb, #1e1b4b);
+}
+
+.aimlSphere {
+  background: radial-gradient(circle at 30% 30%, #d8b4fe, #8b5cf6, #2e1065);
+}
+
+.texture {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 10px);
+  opacity: 0.6;
+  animation: rotateTexture 25s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateTexture {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.info {
+  margin-top: var(--space-2);
+}
+
+.name {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.resources {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}

@@ -1,0 +1,377 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.welcomeBanner {
+  background: linear-gradient(135deg, rgba(26, 32, 53, 0.6) 0%, rgba(17, 25, 50, 0.4) 100%);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .welcomeBanner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.welcomeTitle {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-1);
+}
+
+.welcomeSubtitle {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.quickLaunch {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1100px) {
+  .mainGrid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.chartCard {
+  flex: 1;
+}
+
+.logCard {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.logHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logHeader h3 {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+}
+
+.viewLink {
+  font-size: var(--fs-xs);
+  color: var(--primary-blue);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  transition: color var(--transition-fast);
+}
+
+.viewLink:hover {
+  color: var(--neon-cyan);
+}
+
+.logsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.logItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.logItem:last-child {
+  border-bottom: none;
+}
+
+.logDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.logContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.logAction {
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.logTime {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionHeader h3 {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.sectionHeaderLink {
+  font-size: var(--fs-xs);
+  color: var(--primary-blue);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.sectionHeaderLink:hover {
+  color: var(--neon-cyan);
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .coursesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.courseMiniCard {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.courseMiniCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.courseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.difficultyBadge {
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.difficultyBadge.beginner {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+.difficultyBadge.intermediate {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+}
+
+.difficultyBadge.advanced {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error);
+}
+
+.durationText {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.courseTitle {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  margin-bottom: -2px;
+}
+
+.courseInstructor {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--bg-surface-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-purple), var(--primary-blue));
+  border-radius: var(--radius-full);
+}
+
+.courseFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-1);
+}
+
+.xpText {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--neon-cyan);
+}
+
+.resumeBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: var(--glass-border);
+  color: var(--text-primary);
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.resumeBtn:hover {
+  background: var(--primary-purple);
+  border-color: var(--neon-purple);
+}
+
+/* ─── Logs History Header Action ─── */
+.viewLink {
+  background: transparent;
+  border: none;
+  color: var(--neon-cyan);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.viewLink:hover {
+  background: rgba(6, 182, 212, 0.08);
+  color: #38bdf8;
+}
+
+.logsModalItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.logsModalDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.logsModalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.logsModalAction {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+}
+
+.logsModalTime {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.logsModalLine {
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  bottom: -22px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  z-index: 1;
+}
+

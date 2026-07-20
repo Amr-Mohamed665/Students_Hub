@@ -1,0 +1,212 @@
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chatCard {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--topnav-height) - var(--content-padding) * 2 - 20px);
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.chatHeader {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.botSnippet {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.botAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-purple-light);
+  color: var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(6, 214, 224, 0.2);
+}
+
+.botName {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.botStatus {
+  font-size: 10px;
+  color: var(--success);
+}
+
+.badge {
+  font-size: var(--fs-xs);
+  color: var(--neon-violet);
+  background: var(--primary-purple-light);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+}
+
+.messageBox {
+  flex: 1;
+  padding: var(--space-5);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: rgba(6, 11, 24, 0.2);
+}
+
+.msgRow {
+  display: flex;
+  gap: var(--space-3);
+  max-width: 80%;
+}
+
+.rowAI {
+  align-self: flex-start;
+}
+
+.rowUser {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-surface-light);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.rowAI .avatar {
+  background: var(--primary-purple-light);
+  color: var(--neon-cyan);
+}
+
+.bubble {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+}
+
+.rowAI .bubble {
+  border-top-left-radius: 0;
+}
+
+.rowUser .bubble {
+  background: var(--primary-purple-light);
+  border-color: rgba(124, 58, 237, 0.3);
+  border-top-right-radius: 0;
+}
+
+.bubbleText {
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  line-height: var(--lh-relaxed);
+  white-space: pre-line;
+}
+
+.bubbleTime {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.suggestions {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  overflow-x: auto;
+  border-top: var(--glass-border);
+  white-space: nowrap;
+}
+
+.sugBtn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sugBtn:hover {
+  border-color: var(--primary-purple);
+  color: var(--text-primary);
+}
+
+.form {
+  padding: var(--space-4) var(--space-5);
+  border-top: var(--glass-border);
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-5);
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  outline: none;
+  transition: all var(--transition-base);
+}
+
+.input:focus {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px var(--primary-purple-light);
+}
+
+.typingDots {
+  display: flex;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.typingDots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: typingDot 1.4s infinite;
+}
+
+.typingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
