@@ -1,4 +1,4 @@
-﻿import { Edit3 } from 'lucide-react';
+import { Edit3 } from 'lucide-react';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Button from '../../atoms/Button/Button';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
@@ -36,6 +36,11 @@ export default function ProfileHeader({ user, onEdit }) {
             <h2 className={styles.name}>{user.name}</h2>
             <div className={styles.title}>{user.title}</div>
             <div className={styles.location}>{user.location}</div>
+            {user.currentPhase && (
+              <div className={styles.currentPhase}>
+                <span className={styles.phaseLabel}>Current Phase:</span> {user.currentPhase}
+              </div>
+            )}
             <p className={styles.bio}>{user.bio}</p>
           </div>
 

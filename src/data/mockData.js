@@ -1,4 +1,4 @@
-﻿import r001 from '../assets/images/resources/r001-react-whats-new.jpg';
+import r001 from '../assets/images/resources/r001-react-whats-new.jpg';
 import r002 from '../assets/images/resources/r002-mastering-useeffect.jpg';
 import r003 from '../assets/images/resources/r003-react-server-components.jpg';
 import r004 from '../assets/images/resources/r004-state-management.jpg';
@@ -36,7 +36,8 @@ export const mockUser = {
   avatar: null,
   role: 'student',
   title: 'Frontend Developer | Lifelong Learner',
-  location: 'Cairo, Egypt',
+  location: 'Alexandria, Egypt',
+  currentPhase: 'React Fundamentals',
   bio: 'Loves building beautiful web apps and exploring AI tools.',
   level: 5,
   totalXP: 850,

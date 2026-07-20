@@ -1,4 +1,4 @@
-﻿.headerCard {
+.headerCard {
   background: var(--bg-surface-glass);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -57,6 +57,16 @@
 .location {
   font-size: var(--fs-sm);
   color: var(--text-muted);
+}
+
+.currentPhase {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.phaseLabel {
+  font-weight: var(--fw-semibold);
+  color: var(--primary-cyan, var(--primary-blue));
 }
 
 .bio {

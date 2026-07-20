@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from '../../../components/atoms/Modal/Modal';
 import styles from './EditProfileModal.module.css';
@@ -10,6 +10,7 @@ export default function EditProfileModal({ isOpen, onClose, user, onSave }) {
       email: user?.email || '',
       phone: user?.phone || '+20 100 123 4567',
       learningTrack: user?.learningTrack || 'Frontend Development',
+      currentPhase: user?.currentPhase || 'React Fundamentals',
       bio: user?.bio || '',
       skills: user?.skills ? (Array.isArray(user.skills) ? user.skills.join(', ') : user.skills) : 'React, TypeScript, CSS, AI Tools',
     }
@@ -38,6 +39,7 @@ export default function EditProfileModal({ isOpen, onClose, user, onSave }) {
       email: data.email,
       phone: data.phone,
       learningTrack: data.learningTrack,
+      currentPhase: data.currentPhase,
       bio: data.bio,
       skills: formattedSkills,
       avatar: avatarBase64,
@@ -134,6 +136,16 @@ export default function EditProfileModal({ isOpen, onClose, user, onSave }) {
             <option value="AI & Machine Learning">AI & Machine Learning</option>
             <option value="Data Science">Data Science</option>
           </select>
+        </div>
+
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>Current Phase</label>
+          <input
+            type="text"
+            className={styles.formInput}
+            placeholder="e.g. React Fundamentals"
+            {...register('currentPhase')}
+          />
         </div>
 
         <div className={styles.formGroup}>
