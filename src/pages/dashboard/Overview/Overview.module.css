@@ -306,7 +306,6 @@
   border-color: var(--neon-purple);
 }
 
-/* ─── Logs History Header Action ─── */
 .viewLink {
   background: transparent;
   border: none;
@@ -374,4 +373,3 @@
   background: rgba(255, 255, 255, 0.04);
   z-index: 1;
 }
-

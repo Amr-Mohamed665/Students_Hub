@@ -64,7 +64,7 @@ export default function KnowledgeVault() {
     }
   };
 
-  // Generate July 2026 Calendar view dynamically based on schedules state
+  
   const calendarDays = [
     { day: 28, current: false }, { day: 29, current: false }, { day: 30, current: false },
     ...Array.from({ length: 31 }, (_, i) => {
@@ -82,7 +82,7 @@ export default function KnowledgeVault() {
 
   return (
     <div className={styles.container}>
-      {/* ── Modal Overlay for Add Entry ── */}
+      
       <Modal
         isOpen={showModal}
         onClose={closeModal}

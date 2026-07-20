@@ -3,7 +3,7 @@ import { X } from 'lucide-react';
 import styles from './Modal.module.css';
 
 export default function Modal({ isOpen, onClose, title, subtitle, maxWidth = '480px', children }) {
-  // Close modal on Escape key press
+  
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -11,7 +11,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, maxWidth = '48
 
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
-      // Prevent background scrolling
+      
       document.body.style.overflow = 'hidden';
     }
 
@@ -30,7 +30,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, maxWidth = '48
         style={{ maxWidth }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
+        
         <div className={styles.modalHeader}>
           <div>
             <h2 className={styles.modalTitle}>{title}</h2>
@@ -41,7 +41,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, maxWidth = '48
           </button>
         </div>
 
-        {/* Modal Body */}
+        
         <div className={styles.modalBody}>
           {children}
         </div>

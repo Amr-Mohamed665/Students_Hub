@@ -6,7 +6,7 @@ import styles from './CommandCenter.module.css';
 export default function CommandCenter() {
   const [activeTab, setActiveTab] = useState('general');
 
-  // Load from localStorage if present
+  
   const storedConfig = JSON.parse(localStorage.getItem('students_hub_config') || '{}');
 
   const [particleBgs, setParticleBgs] = useState(storedConfig.particleBgs !== undefined ? storedConfig.particleBgs : true);

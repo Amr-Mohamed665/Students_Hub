@@ -21,7 +21,6 @@
   gap: var(--space-5);
 }
 
-/* ─── Page Header (subtitle + button side by side) ─── */
 .pageHeader {
   display: flex;
   align-items: center;
@@ -63,7 +62,6 @@
   border-color: rgba(239, 68, 68, 0.3);
 }
 
-/* ─── Add Task Button (right-aligned) ─── */
 .addTaskBtn {
   display: flex;
   align-items: center;
@@ -127,7 +125,6 @@
   width: 100%;
 }
 
-/* ─── Modal Overlay ─── */
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -146,7 +143,6 @@
   to { opacity: 1; }
 }
 
-/* ─── Modal Box ─── */
 .modal {
   background: var(--bg-card);
   border: var(--glass-border);
@@ -197,7 +193,6 @@
   color: var(--error);
 }
 
-/* ─── Modal Form ─── */
 .modalForm {
   display: flex;
   flex-direction: column;
@@ -261,7 +256,6 @@
   background: var(--bg-card);
 }
 
-/* ─── Modal Action Buttons ─── */
 .modalActions {
   display: flex;
   justify-content: flex-end;

@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, LogOut } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { sidebarNavItems } from '../../../data/mockData';
 import NavItem from '../../molecules/NavItem/NavItem';
+
 import styles from './Sidebar.module.css';
 
 export default function Sidebar({ isOpen, toggleMobile, isCollapsed, toggleCollapse }) {

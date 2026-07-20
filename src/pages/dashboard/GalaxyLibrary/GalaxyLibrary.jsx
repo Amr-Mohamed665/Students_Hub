@@ -17,7 +17,7 @@ export default function GalaxyLibrary() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Flatten resources with category info for global search
+  
   const allResources = Object.entries(libraryResources).flatMap(([catId, resList]) => {
     const category = categories.find((c) => c.id === catId);
     const categoryName = category ? category.name : catId;
@@ -30,7 +30,7 @@ export default function GalaxyLibrary() {
     }));
   });
 
-  // Filter categories by sector tabs
+  
   const filteredCategories = categories.filter((cat) => {
     let matchesTab = true;
     if (activeTab === 'frameworks') matchesTab = ['react', 'nextjs'].includes(cat.id);
@@ -40,7 +40,7 @@ export default function GalaxyLibrary() {
     return matchesTab;
   });
 
-  // Filter resources globally by search query
+  
   const searchedResources = searchQuery.trim()
     ? allResources.filter((res) => {
         const query = searchQuery.toLowerCase();
@@ -67,7 +67,7 @@ export default function GalaxyLibrary() {
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
-              // Clear category selection when searching
+              
               if (e.target.value.trim()) setSelectedCategory(null);
             }}
             className={styles.search}
@@ -76,7 +76,7 @@ export default function GalaxyLibrary() {
         </div>
       </div>
 
-      {/* Only show category tab filters and planets if we are NOT searching */}
+      
       {!searchQuery.trim() ? (
         <>
           <TabGroup
@@ -107,7 +107,7 @@ export default function GalaxyLibrary() {
             ))}
           </div>
 
-          {/* Selected Planet Category panel */}
+          
           {selectedCategory && (
             <div className={styles.resourcePanel}>
               <div className={styles.panelHeader}>
@@ -162,7 +162,7 @@ export default function GalaxyLibrary() {
             </div>
           )}
 
-          {/* Featured items */}
+          
           {!selectedCategory && (
             <div className={styles.featuredSection}>
               <div className={styles.featuredHeader}>
@@ -199,7 +199,7 @@ export default function GalaxyLibrary() {
           )}
         </>
       ) : (
-        /* Global Search Results Panel */
+        
         <div className={styles.resourcePanel}>
           <div className={styles.panelHeader}>
             <div className={styles.panelTitle}>

@@ -228,7 +228,6 @@
   color: var(--text-secondary);
 }
 
-/* ─── Modal Form ─── */
 .modalForm {
   display: flex;
   flex-direction: column;
@@ -292,7 +291,6 @@
   background: #0b0f19;
 }
 
-/* ─── Modal Action Buttons ─── */
 .modalActions {
   display: flex;
   justify-content: flex-end;
@@ -338,7 +336,6 @@
   transform: translateY(-1px);
 }
 
-/* ─── Delete / Clear Controls ─── */
 .clearBtn {
   display: flex;
   align-items: center;

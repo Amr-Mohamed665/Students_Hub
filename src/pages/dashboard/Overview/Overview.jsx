@@ -59,7 +59,6 @@ export default function Overview() {
     study:   '#EC4899',
   };
 
-
   return (
     <div className={styles.container}>
       
@@ -197,7 +196,7 @@ export default function Overview() {
         </div>
       </div>
 
-      {/* ── Logs History Modal ── */}
+      
       <Modal
         isOpen={showLogsModal}
         onClose={() => setShowLogsModal(false)}

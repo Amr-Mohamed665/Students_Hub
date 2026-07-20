@@ -84,14 +84,14 @@ export default function MissionObjectives() {
 
   return (
     <div className={styles.container}>
-      {/* ── Modal Overlay ── */}
+      
       <Modal
         isOpen={showModal}
         onClose={closeModal}
         title="Add New Task"
         maxWidth="480px"
       >
-        {/* Modal Form */}
+        
         <form onSubmit={handleAddTask} className={styles.modalForm}>
           <div className={styles.formGroup}>
             <label className={styles.formLabel}>Task Title *</label>
@@ -143,7 +143,7 @@ export default function MissionObjectives() {
 
       <div className={styles.layoutGrid}>
         <div className={styles.leftCol}>
-          {/* Page Header row with buttons on the right */}
+          
           <div className={styles.pageHeader}>
             <p className={styles.subtitle}>Track your educational targets and flight metrics.</p>
             <div className={styles.headerBtns}>

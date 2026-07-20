@@ -110,7 +110,6 @@
   color: var(--text-primary);
 }
 
-/* ─── Interactive Controls ─── */
 .toggleBtn {
   background: transparent;
   border: none;
@@ -166,7 +165,6 @@
   color: var(--error);
 }
 
-/* ─── Completed State ─── */
 .completedItem {
   opacity: 0.65;
 }

@@ -31,7 +31,7 @@ export default function ObjectiveItem({ objective, index = 0, onToggleComplete, 
 
   return (
     <div className={`${styles.item} ${isCompleted ? styles.completedItem : ''}`}>
-      {/* Interactive Toggle Checkbox */}
+      
       <button
         className={styles.toggleBtn}
         onClick={() => onToggleComplete && onToggleComplete(id)}
