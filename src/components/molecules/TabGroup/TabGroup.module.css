@@ -6,9 +6,18 @@
   background: var(--bg-surface);
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabGroup::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
+  flex-shrink: 0;
   padding: var(--space-2) var(--space-5);
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
