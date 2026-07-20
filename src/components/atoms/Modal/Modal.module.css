@@ -12,7 +12,7 @@
   animation: modalFadeIn 0.2s ease-out;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .modalOverlay {
     align-items: flex-end;
     padding: 0;
@@ -37,7 +37,7 @@
   animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .modal {
     max-height: 92vh;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;

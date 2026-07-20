@@ -1,4 +1,4 @@
-﻿.container {
+.container {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -55,7 +55,7 @@
   align-items: center;
   font-size: var(--fs-sm);
   padding-bottom: var(--space-2);
-  border-bottom: 1px solid rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .infoRow:last-child {
@@ -250,7 +250,7 @@
 }
 
 .journeyTimeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 3px;
   top: var(--space-2);
@@ -341,3 +341,55 @@
   line-height: var(--lh-normal);
   margin-top: var(--space-2);
 }
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-4);
+  }
+
+  .tabs {
+    align-self: flex-start;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .certCard {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .certHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .infoRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+    padding-bottom: var(--space-3);
+  }
+
+  .certFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .achCard {
+    padding: var(--space-4);
+  }
+
+  .journeyTimeline {
+    padding-left: var(--space-5);
+  }
+}
+

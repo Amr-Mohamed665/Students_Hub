@@ -1,4 +1,4 @@
-﻿.card {
+.card {
   display: flex;
   align-items: flex-start;
   gap: var(--space-4);
@@ -105,3 +105,31 @@
   color: var(--error);
   background: var(--error-light);
 }
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .iconBox {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+  }
+  
+  .iconBox :global(svg) {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .value {
+    font-size: var(--fs-xl);
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+}
+

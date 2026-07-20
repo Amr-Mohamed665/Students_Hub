@@ -1,4 +1,4 @@
-﻿.container {
+.container {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -393,3 +393,58 @@
   font-size: var(--fs-sm);
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .calendarCard,
+  .detailsCard {
+    padding: var(--space-4);
+  }
+
+  .calendarNav {
+    margin-bottom: var(--space-3);
+  }
+
+  .monthTitle {
+    font-size: var(--fs-base);
+  }
+
+  .calendarGrid {
+    gap: 4px;
+  }
+
+  .dayHeader {
+    font-size: 10px;
+    padding-bottom: 4px;
+  }
+
+  .dayCell {
+    display: block;
+    min-height: 42px;
+    padding: 4px 2px;
+    text-align: center;
+  }
+
+  .dayNumber {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 2px;
+  }
+
+  .eventIndicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 1px;
+    display: inline-block;
+  }
+
+  .eventTitleText {
+    display: none;
+  }
+
+  .eventItem {
+    padding: var(--space-3);
+  }
+}
+
