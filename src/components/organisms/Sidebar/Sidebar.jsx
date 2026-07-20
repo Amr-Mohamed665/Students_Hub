@@ -13,6 +13,11 @@ export default function Sidebar({ isOpen, toggleMobile, isCollapsed, toggleColla
     navigate('/landing');
   };
 
+  // Close the mobile sidebar when a nav item is clicked
+  const handleNavClick = () => {
+    if (isOpen) toggleMobile();
+  };
+
   return (
     <aside className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''} ${isOpen ? styles.mobileOpen : ''}`}>
       
@@ -37,6 +42,7 @@ export default function Sidebar({ isOpen, toggleMobile, isCollapsed, toggleColla
               label={item.label}
               path={item.path}
               collapsed={isCollapsed}
+              onNavigate={handleNavClick}
             />
           );
         })}
