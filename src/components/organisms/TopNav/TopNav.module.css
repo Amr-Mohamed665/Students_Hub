@@ -1,4 +1,4 @@
-.topnav {
+﻿.topnav {
   height: 64px;
   position: fixed;
   top: 0;
@@ -130,17 +130,17 @@
     left: 0 !important;
     padding: 0 var(--space-4);
   }
-  
+
   .menuBtn {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   .search {
     display: none;
   }
-  
+
   .userInfo {
     display: none;
   }

@@ -59,6 +59,16 @@
   color: var(--text-muted);
 }
 
+.currentPhase {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.phaseLabel {
+  font-weight: var(--fw-semibold);
+  color: var(--primary-cyan, var(--primary-blue));
+}
+
 .bio {
   font-size: var(--fs-sm);
   color: var(--text-secondary);

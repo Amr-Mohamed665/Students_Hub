@@ -1,4 +1,4 @@
-.sidebar {
+﻿.sidebar {
   width: var(--sidebar-width);
   height: 100vh;
   position: fixed;
@@ -101,12 +101,12 @@
   .sidebar {
     transform: translateX(-100%);
   }
-  
+
   .mobileOpen {
     transform: translateX(0);
     box-shadow: 10px 0 30px rgba(0,0,0,0.6);
   }
-  
+
   .toggleBtn {
     display: none;
   }

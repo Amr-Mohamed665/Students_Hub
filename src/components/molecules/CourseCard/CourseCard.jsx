@@ -1,4 +1,4 @@
-import { Clock, BookOpen, Zap } from 'lucide-react';
+﻿import { Clock, BookOpen, Zap } from 'lucide-react';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
 import Button from '../../atoms/Button/Button';
 import Badge from '../../atoms/Badge/Badge';

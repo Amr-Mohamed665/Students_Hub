@@ -1,22 +1,32 @@
-import { useState } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Award, Shield, CheckCircle, Calendar, Link as LinkIcon } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 import ProfileHeader from '../../../components/organisms/ProfileHeader/ProfileHeader';
 import TabGroup from '../../../components/molecules/TabGroup/TabGroup';
 import Badge from '../../../components/atoms/Badge/Badge';
+import ProgressBar from '../../../components/atoms/ProgressBar/ProgressBar';
+import EditProfileModal from './EditProfileModal';
 import { achievements, certificates } from '../../../data/mockData';
 import styles from './StudentProfile.module.css';
 
 export default function StudentProfile() {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const [activeTab, setActiveTab] = useState('about');
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [progressVal, setProgressVal] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgressVal(68);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className={styles.container}>
-      
-      <ProfileHeader user={user} onEdit={() => alert('Profile editing protocol initiated...')} />
 
-      
+      <ProfileHeader user={user} onEdit={() => setIsEditOpen(true)} />
+
       <TabGroup
         tabs={[
           { id: 'about', label: 'About' },
@@ -31,7 +41,6 @@ export default function StudentProfile() {
         className={styles.tabs}
       />
 
-      
       <div className={styles.tabContent}>
         {activeTab === 'about' && (
           <div className={styles.aboutGrid}>
@@ -44,11 +53,15 @@ export default function StudentProfile() {
                 </div>
                 <div className={styles.infoRow}>
                   <span className={styles.infoLabel}>Enrolled Sector</span>
-                  <span className={styles.infoValue}>Frontend Development</span>
+                  <span className={styles.infoValue}>{user?.learningTrack || 'Frontend Development'}</span>
                 </div>
                 <div className={styles.infoRow}>
                   <span className={styles.infoLabel}>Joined Academy Date</span>
-                  <span className={styles.infoValue}>{user?.joinedDate}</span>
+                  <span className={styles.infoValue}>{user?.joinedDate || '2025-09-15'}</span>
+                </div>
+                <div className={styles.infoRow}>
+                  <span className={styles.infoLabel}>Phone Number</span>
+                  <span className={styles.infoValue}>{user?.phone || '+20 100 123 4567'}</span>
                 </div>
                 <div className={styles.infoRow}>
                   <span className={styles.infoLabel}>Status Clearance</span>
@@ -58,15 +71,45 @@ export default function StudentProfile() {
             </div>
 
             <div className={styles.card}>
+              <h3 className={styles.cardTitle}>Learning Progress</h3>
+              <div className={styles.progressSection}>
+                <div className={styles.progressHeaderRow}>
+                  <span className={styles.progressLabel}>Track Completion</span>
+                  <span className={styles.progressPercentage}>{progressVal}%</span>
+                </div>
+                <ProgressBar
+                  value={progressVal}
+                  max={100}
+                  showValue={false}
+                  variant="purple"
+                  size="lg"
+                />
+                <p className={styles.progressHint}>
+                  Track your learning modules completions to unlock advanced simulators and sectors.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.card}>
               <h3 className={styles.cardTitle}>Mission Preferences</h3>
               <p className={styles.prefText}>
                 Primary focus is on modern Javascript stacks, including React 19, typescript, and styling architectures.
               </p>
               <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', marginTop: 'var(--space-4)' }}>
-                <Badge variant="purple">React</Badge>
-                <Badge variant="info">TypeScript</Badge>
-                <Badge variant="cyan">CSS</Badge>
-                <Badge variant="success">AI Tools</Badge>
+                {user?.skills && Array.isArray(user.skills) ? (
+                  user.skills.map((skill, idx) => {
+                    const variants = ['purple', 'info', 'cyan', 'success'];
+                    const variant = variants[idx % variants.length];
+                    return <Badge key={skill} variant={variant}>{skill}</Badge>;
+                  })
+                ) : (
+                  <>
+                    <Badge variant="purple">React</Badge>
+                    <Badge variant="info">TypeScript</Badge>
+                    <Badge variant="cyan">CSS</Badge>
+                    <Badge variant="success">AI Tools</Badge>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -162,6 +205,13 @@ export default function StudentProfile() {
           </div>
         )}
       </div>
+
+      <EditProfileModal
+        isOpen={isEditOpen}
+        onClose={() => setIsEditOpen(false)}
+        user={user}
+        onSave={updateUser}
+      />
     </div>
   );
 }

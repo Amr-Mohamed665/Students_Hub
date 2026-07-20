@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+﻿import { Link, useLocation } from 'react-router-dom';
 import { Menu, Bell } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 import { useNotifications } from '../../../context/NotificationContext';
@@ -17,6 +17,7 @@ const pageMap = {
   '/dashboard/profile': { title: 'Your Profile', subtitle: 'Manage your academy profile and track your journey' },
   '/dashboard/notifications': { title: 'Notification Center', subtitle: 'Stay updated with your latest activity' },
   '/dashboard/command': { title: 'Command Center', subtitle: 'Configure your academy experience' },
+  '/dashboard/notes': { title: 'Notes', subtitle: 'Your personal academy note database' },
 };
 
 export default function TopNav({ isCollapsed, toggleMobile }) {
@@ -43,7 +44,7 @@ export default function TopNav({ isCollapsed, toggleMobile }) {
 
       <div className={styles.rightSection}>
         <SearchBar className={styles.search} placeholder="Search resources..." glass />
-        
+
         <div className={styles.actions}>
           <Link to="/dashboard/notifications" className={styles.actionBtn} aria-label="Notifications">
             <Bell size={18} />
@@ -58,6 +59,7 @@ export default function TopNav({ isCollapsed, toggleMobile }) {
               <div className={styles.userRole}>{user.title?.split('|')[0]?.trim()}</div>
             </div>
             <Avatar
+              src={user.avatar}
               name={user.name}
               size="md"
               glow

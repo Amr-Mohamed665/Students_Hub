@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Calendar as CalendarIcon, Clock, Plus, ChevronLeft, ChevronRight, X, Trash2 } from 'lucide-react';
 import Button from '../../../components/atoms/Button/Button';
 import Badge from '../../../components/atoms/Badge/Badge';
@@ -64,7 +64,6 @@ export default function KnowledgeVault() {
     }
   };
 
-  
   const calendarDays = [
     { day: 28, current: false }, { day: 29, current: false }, { day: 30, current: false },
     ...Array.from({ length: 31 }, (_, i) => {
@@ -82,7 +81,7 @@ export default function KnowledgeVault() {
 
   return (
     <div className={styles.container}>
-      
+
       <Modal
         isOpen={showModal}
         onClose={closeModal}

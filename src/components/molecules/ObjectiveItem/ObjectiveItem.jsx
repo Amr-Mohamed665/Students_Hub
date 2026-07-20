@@ -1,6 +1,7 @@
-import * as Icons from 'lucide-react';
-import { Circle, CheckCircle2, Trash2 } from 'lucide-react';
+﻿import * as Icons from 'lucide-react';
+import { Circle, CheckCircle2, Trash2, Pencil } from 'lucide-react';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
+import Badge from '../../atoms/Badge/Badge';
 import styles from './ObjectiveItem.module.css';
 
 const colorMap = {
@@ -19,8 +20,14 @@ const progressVariants = {
   4: 'cyan',
 };
 
-export default function ObjectiveItem({ objective, index = 0, onToggleComplete, onDelete }) {
-  const { id, title, subtitle, progress } = objective;
+const priorityVariants = {
+  high: 'error',
+  medium: 'warning',
+  low: 'success',
+};
+
+export default function ObjectiveItem({ objective, index = 0, onToggleComplete, onEdit, onDelete }) {
+  const { id, title, subtitle, progress, priority } = objective;
   const isCompleted = progress >= 100;
 
   const iconName = objective.icon || 'GraduationCap';
@@ -31,7 +38,7 @@ export default function ObjectiveItem({ objective, index = 0, onToggleComplete, 
 
   return (
     <div className={`${styles.item} ${isCompleted ? styles.completedItem : ''}`}>
-      
+
       <button
         className={styles.toggleBtn}
         onClick={() => onToggleComplete && onToggleComplete(id)}
@@ -50,12 +57,26 @@ export default function ObjectiveItem({ objective, index = 0, onToggleComplete, 
 
       <div className={styles.content}>
         <div className={styles.header}>
-          <div>
-            <h4 className={`${styles.title} ${isCompleted ? styles.completedTitle : ''}`}>{title}</h4>
+          <div className={styles.textContainer}>
+            <div className={styles.titleRow}>
+              <h4 className={`${styles.title} ${isCompleted ? styles.completedTitle : ''}`}>{title}</h4>
+              <Badge variant={priorityVariants[priority] || priorityVariants['medium']} className={styles.priorityBadge}>
+                {priority || 'medium'}
+              </Badge>
+            </div>
             <div className={styles.subtitle}>{subtitle}</div>
           </div>
           <div className={styles.actionsRight}>
             <span className={styles.percentage}>{progress}%</span>
+            {onEdit && (
+              <button
+                className={styles.editBtn}
+                onClick={() => onEdit(objective)}
+                title="Edit task"
+              >
+                <Pencil size={14} />
+              </button>
+            )}
             {onDelete && (
               <button
                 className={styles.deleteBtn}

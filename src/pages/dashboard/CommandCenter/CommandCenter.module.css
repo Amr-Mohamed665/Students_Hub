@@ -154,7 +154,7 @@
   right: 0;
   bottom: 0;
   background-color: var(--bg-surface-light);
-  transition: .4s;
+  transition: 0.4s;
   border-radius: var(--radius-full);
   border: var(--glass-border);
 }
@@ -167,7 +167,7 @@
   left: 3px;
   bottom: 3px;
   background-color: var(--text-secondary);
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -314,4 +314,168 @@
   height: 100%;
   background: linear-gradient(90deg, var(--primary-purple), var(--primary-blue));
   border-radius: var(--radius-full);
+}
+
+.mobileMenuHeader {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
+
+.mobileSubtitle {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+
+.mobileMenuList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.mobileMenuRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-surface-glass);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-sizing: border-box;
+}
+
+.mobileMenuRow:hover {
+  background: var(--bg-surface-glass-light);
+  border-color: var(--primary-purple-light);
+  transform: translateY(-1px);
+}
+
+.mobileMenuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.iconPurple {
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--neon-violet);
+}
+
+.iconOrange {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+}
+
+.iconBlue {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--primary-blue);
+}
+
+.iconCyan {
+  background: rgba(6, 214, 224, 0.15);
+  color: var(--neon-cyan);
+}
+
+.iconRed {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error);
+}
+
+.mobileMenuInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobileMenuLabel {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.mobileMenuDesc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: var(--lh-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobileChevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.mobileBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(255, 255, 255, 0.04);
+  border: var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  margin-bottom: var(--space-4);
+  transition: all var(--transition-fast);
+}
+
+.mobileBackButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .settingsCard {
+    padding: var(--space-3);
+    gap: var(--space-4);
+  }
+
+  .controlRow {
+    padding: var(--space-2) 0;
+    gap: var(--space-2);
+  }
+
+  .controlName {
+    font-size: var(--fs-xs);
+  }
+
+  .controlDesc {
+    font-size: 11px;
+    line-height: var(--lh-tight);
+  }
+
+  .sideMenu {
+    gap: var(--space-1);
+    padding-bottom: var(--space-1);
+  }
+
+  .menuBtn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 11px;
+  }
+  
+  .themeOption {
+    padding: var(--space-2);
+    font-size: 10px;
+  }
+
+  .footer {
+    padding-top: var(--space-3);
+  }
 }

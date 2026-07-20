@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Bell, BookOpen, Trophy, AlertTriangle, RefreshCw, Settings, CheckCheck, Trash2 } from 'lucide-react';
 import { useNotifications } from '../../../context/NotificationContext';
 import NotificationItem from '../../../components/molecules/NotificationItem/NotificationItem';
@@ -32,7 +32,6 @@ export default function NotificationCenter() {
     return n.type === activeTab;
   });
 
-  
   const counts = notifications.reduce((acc, n) => {
     const key = ['system', 'update'].includes(n.type) ? 'system' : n.type;
     acc[key] = (acc[key] || 0) + 1;
@@ -42,7 +41,7 @@ export default function NotificationCenter() {
   return (
     <div className={styles.container}>
       <div className={styles.layoutGrid}>
-        
+
         <aside className={styles.sidebar}>
           <div className={styles.sideCard}>
             <h3 className={styles.sideTitle}>Inbox Summary</h3>
@@ -101,9 +100,8 @@ export default function NotificationCenter() {
           </div>
         </aside>
 
-        
         <div className={styles.mainCol}>
-          
+
           <div className={styles.tabBar}>
             {TAB_FILTERS.map((tab) => {
               const count = tab.id === 'all' ? notifications.length
@@ -127,7 +125,6 @@ export default function NotificationCenter() {
             })}
           </div>
 
-          
           <div className={styles.listCard}>
             {filtered.length > 0 ? (
               <div className={styles.list}>

@@ -1,11 +1,43 @@
+import r001 from '../assets/images/resources/r001-react-whats-new.jpg';
+import r002 from '../assets/images/resources/r002-mastering-useeffect.jpg';
+import r003 from '../assets/images/resources/r003-react-server-components.jpg';
+import r004 from '../assets/images/resources/r004-state-management.jpg';
+import r005 from '../assets/images/resources/r005-react-testing-library.jpg';
+import r006 from '../assets/images/resources/r006-performance-optimization.jpg';
+import r007 from '../assets/images/resources/r007-modern-javascript.jpg';
+import r008 from '../assets/images/resources/r008-async-await.jpg';
+import r009 from '../assets/images/resources/r009-closures-scope.jpg';
+import r010 from '../assets/images/resources/r010-design-patterns.jpg';
+import r011 from '../assets/images/resources/r011-prototype-chain.jpg';
+import r012 from '../assets/images/resources/r012-array-methods.jpg';
+import r013 from '../assets/images/resources/r013-css-grid.jpg';
+import r014 from '../assets/images/resources/r014-css-animations.jpg';
+import r015 from '../assets/images/resources/r015-css-variables.jpg';
+import r016 from '../assets/images/resources/r016-flexbox.jpg';
+import r017 from '../assets/images/resources/r017-css-architecture.jpg';
+import r018 from '../assets/images/resources/r018-nextjs-app-router.jpg';
+import r019 from '../assets/images/resources/r019-server-actions.jpg';
+import r020 from '../assets/images/resources/r020-nextjs-deployment.jpg';
+import r021 from '../assets/images/resources/r021-api-routes.jpg';
+import r022 from '../assets/images/resources/r022-typescript-react.jpg';
+import r023 from '../assets/images/resources/r023-generics-utility.jpg';
+import r024 from '../assets/images/resources/r024-typescript-strict.jpg';
+import r025 from '../assets/images/resources/r025-type-guards.jpg';
+import r026 from '../assets/images/resources/r026-intro-ml.jpg';
+import r027 from '../assets/images/resources/r027-neural-networks.jpg';
+import r028 from '../assets/images/resources/r028-prompt-engineering.jpg';
+import r029 from '../assets/images/resources/r029-openai-api.jpg';
+import r030 from '../assets/images/resources/r030-fine-tuning-llms.jpg';
+
 export const mockUser = {
   id: 'usr_001',
   name: 'Amr Mohamed Ali',
   email: 'amr.mohamed@example.com',
-  avatar: null, 
+  avatar: null,
   role: 'student',
   title: 'Frontend Developer | Lifelong Learner',
-  location: 'Cairo, Egypt',
+  location: 'Alexandria, Egypt',
+  currentPhase: 'React Fundamentals',
   bio: 'Loves building beautiful web apps and exploring AI tools.',
   level: 5,
   totalXP: 850,
@@ -25,6 +57,7 @@ export const sidebarNavItems = [
   { id: 'resources', label: 'Resources', icon: 'FolderOpen', path: '/dashboard/library' },
   { id: 'aicoach', label: 'AI Coach', icon: 'Bot', path: '/dashboard/coach' },
   { id: 'analytics', label: 'Analytics', icon: 'BarChart3', path: '/dashboard/analytics' },
+  { id: 'notes', label: 'Notes', icon: 'StickyNote', path: '/dashboard/notes' },
   { id: 'inbox', label: 'Inbox', icon: 'Mail', path: '/dashboard/notifications' },
   { id: 'achievements', label: 'Profile', icon: 'User', path: '/dashboard/profile' },
   { id: 'settings', label: 'Settings', icon: 'Settings', path: '/dashboard/command' },
@@ -83,6 +116,7 @@ export const missionObjectives = [
     progress: 75,
     status: 'active',
     icon: 'GraduationCap',
+    priority: 'high',
   },
   {
     id: 'obj_002',
@@ -91,6 +125,7 @@ export const missionObjectives = [
     progress: 60,
     status: 'active',
     icon: 'Code',
+    priority: 'high',
   },
   {
     id: 'obj_003',
@@ -99,6 +134,7 @@ export const missionObjectives = [
     progress: 45,
     status: 'active',
     icon: 'Brain',
+    priority: 'medium',
   },
   {
     id: 'obj_004',
@@ -107,6 +143,7 @@ export const missionObjectives = [
     progress: 30,
     status: 'active',
     icon: 'Sparkles',
+    priority: 'medium',
   },
   {
     id: 'obj_005',
@@ -115,6 +152,7 @@ export const missionObjectives = [
     progress: 20,
     status: 'active',
     icon: 'BookOpen',
+    priority: 'low',
   },
 ];
 
@@ -129,46 +167,46 @@ export const libraryCategories = [
 
 export const libraryResources = {
   react: [
-    { id: 'r_001', title: 'React 19 — What\'s New', type: 'article', duration: '8 min read', level: 'Intermediate', icon: 'FileText', url: 'https://react.dev/blog/2024/12/05/react-19' },
-    { id: 'r_002', title: 'Mastering useEffect & Cleanup', type: 'video', duration: '22 min', level: 'Advanced', icon: 'Play', url: 'https://react.dev/reference/react/useEffect' },
-    { id: 'r_003', title: 'React Server Components Deep Dive', type: 'video', duration: '45 min', level: 'Advanced', icon: 'Play', url: 'https://react.dev/reference/rsc/server-components' },
-    { id: 'r_004', title: 'State Management Patterns', type: 'article', duration: '12 min read', level: 'Intermediate', icon: 'FileText', url: 'https://react.dev/learn/sharing-state-between-components' },
-    { id: 'r_005', title: 'React Testing Library Guide', type: 'guide', duration: '30 min read', level: 'Intermediate', icon: 'BookOpen', url: 'https://testing-library.com/docs/react-testing-library/intro/' },
-    { id: 'r_006', title: 'Performance Optimization in React', type: 'video', duration: '35 min', level: 'Advanced', icon: 'Play', url: 'https://react.dev/reference/react/memo' },
+    { id: 'r_001', title: 'React 19 — What\'s New', description: 'Explore the latest features in React 19 including new hooks, server components improvements, and the transition API.', type: 'article', duration: '8 min read', level: 'Intermediate', icon: 'FileText', url: 'https://react.dev/blog/2024/12/05/react-19', image: r001 },
+    { id: 'r_002', title: 'Mastering useEffect & Cleanup', description: 'Deep dive into the useEffect hook lifecycle, how to properly clean up side effects, and avoid common memory leaks.', type: 'video', duration: '22 min', level: 'Advanced', icon: 'Play', url: 'https://react.dev/reference/react/useEffect', image: r002 },
+    { id: 'r_003', title: 'React Server Components Deep Dive', description: 'Understand the fundamentals of React Server Components and how they change full-stack development patterns.', type: 'video', duration: '45 min', level: 'Advanced', icon: 'Play', url: 'https://react.dev/reference/rsc/server-components', image: r003 },
+    { id: 'r_004', title: 'State Management Patterns', description: 'Learn proven patterns for managing state across React applications, from local state to shared context strategies.', type: 'article', duration: '12 min read', level: 'Intermediate', icon: 'FileText', url: 'https://react.dev/learn/sharing-state-between-components', image: r004 },
+    { id: 'r_005', title: 'React Testing Library Guide', description: 'Write maintainable tests for React components using React Testing Library and best practices for UI testing.', type: 'guide', duration: '30 min read', level: 'Intermediate', icon: 'BookOpen', url: 'https://testing-library.com/docs/react-testing-library/intro/', image: r005 },
+    { id: 'r_006', title: 'Performance Optimization in React', description: 'Techniques to optimize render performance using memo, useMemo, useCallback, and code splitting strategies.', type: 'video', duration: '35 min', level: 'Advanced', icon: 'Play', url: 'https://react.dev/reference/react/memo', image: r006 },
   ],
   javascript: [
-    { id: 'r_007', title: 'Modern JavaScript ES2025', type: 'article', duration: '10 min read', level: 'Beginner', icon: 'FileText', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide' },
-    { id: 'r_008', title: 'Async/Await Mastery', type: 'video', duration: '28 min', level: 'Intermediate', icon: 'Play', url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises' },
-    { id: 'r_009', title: 'Closures & Scope Explained', type: 'video', duration: '18 min', level: 'Intermediate', icon: 'Play', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures' },
-    { id: 'r_010', title: 'JavaScript Design Patterns', type: 'guide', duration: '45 min read', level: 'Advanced', icon: 'BookOpen', url: 'https://www.patterns.dev/posts/classic-design-patterns/' },
-    { id: 'r_011', title: 'Prototype Chain & OOP', type: 'article', duration: '15 min read', level: 'Intermediate', icon: 'FileText', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain' },
-    { id: 'r_012', title: 'Array Methods Cheat Sheet', type: 'guide', duration: '5 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array' },
+    { id: 'r_007', title: 'Modern JavaScript ES2025', description: 'A complete overview of the latest JavaScript features including new syntax, built-in methods, and module improvements.', type: 'article', duration: '10 min read', level: 'Beginner', icon: 'FileText', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide', image: r007 },
+    { id: 'r_008', title: 'Async/Await Mastery', description: 'Master asynchronous JavaScript with Promises, async/await syntax, error handling, and concurrent operations.', type: 'video', duration: '28 min', level: 'Intermediate', icon: 'Play', url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises', image: r008 },
+    { id: 'r_009', title: 'Closures & Scope Explained', description: 'Demystify JavaScript closures, lexical scope, and how the call stack manages execution contexts.', type: 'video', duration: '18 min', level: 'Intermediate', icon: 'Play', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures', image: r009 },
+    { id: 'r_010', title: 'JavaScript Design Patterns', description: 'Explore classic and modern design patterns applied to JavaScript, including Singleton, Factory, and Observer.', type: 'guide', duration: '45 min read', level: 'Advanced', icon: 'BookOpen', url: 'https://www.patterns.dev/posts/classic-design-patterns/', image: r010 },
+    { id: 'r_011', title: 'Prototype Chain & OOP', description: 'Understand JavaScript object-oriented programming through prototype chains, inheritance, and class syntax.', type: 'article', duration: '15 min read', level: 'Intermediate', icon: 'FileText', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain', image: r011 },
+    { id: 'r_012', title: 'Array Methods Cheat Sheet', description: 'A practical reference for all JavaScript array methods including map, filter, reduce, find, and flat.', type: 'guide', duration: '5 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array', image: r012 },
   ],
   css: [
-    { id: 'r_013', title: 'CSS Grid Complete Guide', type: 'guide', duration: '20 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://css-tricks.com/snippets/css/complete-guide-grid/' },
-    { id: 'r_014', title: 'Advanced CSS Animations', type: 'video', duration: '40 min', level: 'Advanced', icon: 'Play', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations' },
-    { id: 'r_015', title: 'CSS Variables & Theming', type: 'article', duration: '8 min read', level: 'Intermediate', icon: 'FileText', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' },
-    { id: 'r_016', title: 'Flexbox Mastery', type: 'video', duration: '25 min', level: 'Beginner', icon: 'Play', url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/' },
-    { id: 'r_017', title: 'CSS Architecture (BEM, SMACSS)', type: 'article', duration: '14 min read', level: 'Intermediate', icon: 'FileText', url: 'https://en.bem.info/methodology/key-concepts/' },
+    { id: 'r_013', title: 'CSS Grid Complete Guide', description: 'A comprehensive visual guide to CSS Grid Layout covering all properties, named areas, and responsive patterns.', type: 'guide', duration: '20 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://css-tricks.com/snippets/css/complete-guide-grid/', image: r013 },
+    { id: 'r_014', title: 'Advanced CSS Animations', description: 'Build smooth, performant animations using keyframes, transitions, and the Web Animations API.', type: 'video', duration: '40 min', level: 'Advanced', icon: 'Play', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations', image: r014 },
+    { id: 'r_015', title: 'CSS Variables & Theming', description: 'Leverage CSS custom properties to build scalable design tokens and dynamic theming systems.', type: 'article', duration: '8 min read', level: 'Intermediate', icon: 'FileText', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties', image: r015 },
+    { id: 'r_016', title: 'Flexbox Mastery', description: 'Master CSS Flexbox for building complex one-dimensional layouts with precise alignment control.', type: 'video', duration: '25 min', level: 'Beginner', icon: 'Play', url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/', image: r016 },
+    { id: 'r_017', title: 'CSS Architecture (BEM, SMACSS)', description: 'Organize CSS at scale using methodologies like BEM, SMACSS, and Atomic CSS for maintainable codebases.', type: 'article', duration: '14 min read', level: 'Intermediate', icon: 'FileText', url: 'https://en.bem.info/methodology/key-concepts/', image: r017 },
   ],
   nextjs: [
-    { id: 'r_018', title: 'Next.js 14 App Router', type: 'video', duration: '55 min', level: 'Intermediate', icon: 'Play', url: 'https://nextjs.org/docs' },
-    { id: 'r_019', title: 'Server Actions & Forms', type: 'article', duration: '10 min read', level: 'Intermediate', icon: 'FileText', url: 'https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations' },
-    { id: 'r_020', title: 'Next.js Deployment on Vercel', type: 'guide', duration: '15 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://vercel.com/docs/deployments/overview' },
-    { id: 'r_021', title: 'API Routes & Middleware', type: 'video', duration: '30 min', level: 'Advanced', icon: 'Play', url: 'https://nextjs.org/docs/app/building-your-application/routing/middleware' },
+    { id: 'r_018', title: 'Next.js 14 App Router', description: 'A deep exploration of the App Router paradigm, layouts, loading states, and streaming in Next.js 14.', type: 'video', duration: '55 min', level: 'Intermediate', icon: 'Play', url: 'https://nextjs.org/docs', image: r018 },
+    { id: 'r_019', title: 'Server Actions & Forms', description: 'Use Next.js Server Actions to handle form submissions and mutations directly from server-side code.', type: 'article', duration: '10 min read', level: 'Intermediate', icon: 'FileText', url: 'https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations', image: r019 },
+    { id: 'r_020', title: 'Next.js Deployment on Vercel', description: 'Step-by-step guide to deploying Next.js applications on Vercel with CI/CD, previews, and custom domains.', type: 'guide', duration: '15 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://vercel.com/docs/deployments/overview', image: r020 },
+    { id: 'r_021', title: 'API Routes & Middleware', description: 'Build custom API routes and middleware in Next.js for request intercepting, authentication, and edge functions.', type: 'video', duration: '30 min', level: 'Advanced', icon: 'Play', url: 'https://nextjs.org/docs/app/building-your-application/routing/middleware', image: r021 },
   ],
   typescript: [
-    { id: 'r_022', title: 'TypeScript for React Devs', type: 'guide', duration: '25 min read', level: 'Intermediate', icon: 'BookOpen', url: 'https://react.dev/learn/typescript' },
-    { id: 'r_023', title: 'Advanced Generics & Utility Types', type: 'video', duration: '38 min', level: 'Advanced', icon: 'Play', url: 'https://www.typescriptlang.org/docs/handbook/2/generics.html' },
-    { id: 'r_024', title: 'TypeScript Strict Mode Guide', type: 'article', duration: '12 min read', level: 'Intermediate', icon: 'FileText', url: 'https://www.typescriptlang.org/tsconfig#strict' },
-    { id: 'r_025', title: 'Type Guards & Narrowing', type: 'video', duration: '22 min', level: 'Advanced', icon: 'Play', url: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html' },
+    { id: 'r_022', title: 'TypeScript for React Devs', description: 'A practical guide to using TypeScript with React, covering prop types, hooks typing, and component generics.', type: 'guide', duration: '25 min read', level: 'Intermediate', icon: 'BookOpen', url: 'https://react.dev/learn/typescript', image: r022 },
+    { id: 'r_023', title: 'Advanced Generics & Utility Types', description: 'Master TypeScript generics, conditional types, mapped types, and the full suite of built-in utility types.', type: 'video', duration: '38 min', level: 'Advanced', icon: 'Play', url: 'https://www.typescriptlang.org/docs/handbook/2/generics.html', image: r023 },
+    { id: 'r_024', title: 'TypeScript Strict Mode Guide', description: 'Enable TypeScript strict mode to catch more errors at compile time and write more robust, predictable code.', type: 'article', duration: '12 min read', level: 'Intermediate', icon: 'FileText', url: 'https://www.typescriptlang.org/tsconfig#strict', image: r024 },
+    { id: 'r_025', title: 'Type Guards & Narrowing', description: 'Learn how TypeScript narrows types using typeof, instanceof, discriminated unions, and custom type guards.', type: 'video', duration: '22 min', level: 'Advanced', icon: 'Play', url: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', image: r025 },
   ],
   aiml: [
-    { id: 'r_026', title: 'Intro to Machine Learning', type: 'guide', duration: '30 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://developers.google.com/machine-learning/crash-course' },
-    { id: 'r_027', title: 'Neural Networks Explained', type: 'video', duration: '48 min', level: 'Intermediate', icon: 'Play', url: 'https://www.youtube.com/watch?v=aircAruvnKk' },
-    { id: 'r_028', title: 'Prompt Engineering for Developers', type: 'article', duration: '10 min read', level: 'Beginner', icon: 'FileText', url: 'https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/' },
-    { id: 'r_029', title: 'Building with OpenAI API', type: 'video', duration: '35 min', level: 'Intermediate', icon: 'Play', url: 'https://platform.openai.com/docs/overview' },
-    { id: 'r_030', title: 'Fine-Tuning LLMs', type: 'guide', duration: '40 min read', level: 'Advanced', icon: 'BookOpen', url: 'https://platform.openai.com/docs/guides/fine-tuning' },
+    { id: 'r_026', title: 'Intro to Machine Learning', description: 'Google\'s foundational crash course covering supervised learning, loss functions, gradient descent, and model evaluation.', type: 'guide', duration: '30 min read', level: 'Beginner', icon: 'BookOpen', url: 'https://developers.google.com/machine-learning/crash-course', image: r026 },
+    { id: 'r_027', title: 'Neural Networks Explained', description: 'A visual, intuitive explanation of how neural networks learn through forward propagation and backpropagation.', type: 'video', duration: '48 min', level: 'Intermediate', icon: 'Play', url: 'https://www.youtube.com/watch?v=aircAruvnKk', image: r027 },
+    { id: 'r_028', title: 'Prompt Engineering for Developers', description: 'Learn prompt design techniques for GPT models including few-shot learning, chain-of-thought, and output formatting.', type: 'article', duration: '10 min read', level: 'Beginner', icon: 'FileText', url: 'https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/', image: r028 },
+    { id: 'r_029', title: 'Building with OpenAI API', description: 'Integrate the OpenAI API into your applications for text generation, embeddings, image creation, and function calling.', type: 'video', duration: '35 min', level: 'Intermediate', icon: 'Play', url: 'https://platform.openai.com/docs/overview', image: r029 },
+    { id: 'r_030', title: 'Fine-Tuning LLMs', description: 'A practical guide to fine-tuning large language models on custom datasets using OpenAI and HuggingFace.', type: 'guide', duration: '40 min read', level: 'Advanced', icon: 'BookOpen', url: 'https://platform.openai.com/docs/guides/fine-tuning', image: r030 },
   ],
 };
 

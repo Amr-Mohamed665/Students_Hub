@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { ArrowRight, Brain, Shield, Award, Sparkles } from 'lucide-react';
 import PublicLayout from '../../../components/layouts/PublicLayout/PublicLayout';
 import Button from '../../../components/atoms/Button/Button';
@@ -16,7 +16,7 @@ export default function LandingPage() {
   return (
     <PublicLayout maxWidth="900px">
       <div className={styles.container}>
-        
+
         <header className={styles.header}>
           <div className={styles.logoGroup}>
             <div className={styles.logoBadge}>S</div>
@@ -30,7 +30,6 @@ export default function LandingPage() {
           </div>
         </header>
 
-        
         <section className={styles.hero}>
           <h1 className={styles.title}>
             Master Your Skills
@@ -52,7 +51,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        
         <section className={styles.features}>
           <h2 className={styles.featuresTitle}>Academic Mission Capabilities</h2>
           <div className={styles.grid}>
@@ -71,7 +69,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        
         <footer className={styles.footer}>
           <p>&copy; {new Date().getFullYear()} Students Hub. All systems operational. Safe travels.</p>
         </footer>

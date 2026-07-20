@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import { Bot, Send, User, Sparkles } from 'lucide-react';
 import Button from '../../../components/atoms/Button/Button';
 import { coachMessages, coachSuggestions } from '../../../data/mockData';
@@ -28,7 +28,6 @@ export default function AIStudyCoach() {
     setInputText('');
     setTyping(true);
 
-    
     setTimeout(() => {
       setTyping(false);
       const aiMsg = {
@@ -44,7 +43,7 @@ export default function AIStudyCoach() {
   return (
     <div className={styles.container}>
       <div className={styles.chatCard}>
-        
+
         <div className={styles.chatHeader}>
           <div className={styles.botSnippet}>
             <div className={styles.botAvatar}>
@@ -61,7 +60,6 @@ export default function AIStudyCoach() {
           </span>
         </div>
 
-        
         <div className={styles.messageBox}>
           {messages.map((msg) => {
             const isAI = msg.sender === 'ai';
@@ -94,7 +92,6 @@ export default function AIStudyCoach() {
           <div ref={scrollRef} />
         </div>
 
-        
         <div className={styles.suggestions}>
           {coachSuggestions.map((sug, i) => (
             <button
@@ -107,7 +104,6 @@ export default function AIStudyCoach() {
           ))}
         </div>
 
-        
         <form
           className={styles.form}
           onSubmit={(e) => {

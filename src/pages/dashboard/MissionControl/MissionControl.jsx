@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { courses as initialCourses } from '../../../data/mockData';
 import CourseCard from '../../../components/molecules/CourseCard/CourseCard';
 import TabGroup from '../../../components/molecules/TabGroup/TabGroup';
@@ -20,14 +20,12 @@ export default function MissionControl() {
   };
 
   const filteredCourses = courses.filter((course) => {
-    
+
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           course.instructor.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    
+
     const matchesDifficulty = difficultyFilter === 'all' || course.difficulty === difficultyFilter;
 
-    
     let matchesTab = true;
     if (activeTab === 'in-progress') {
       matchesTab = course.progress > 0 && course.progress < 100;
@@ -44,8 +42,7 @@ export default function MissionControl() {
         <div>
           <p className={styles.subtitle}>Select educational missions to increase your academy clearance level.</p>
         </div>
-        
-        
+
         <div className={styles.toolbar}>
           <SearchBar
             placeholder="Search missions..."
@@ -67,7 +64,6 @@ export default function MissionControl() {
         </div>
       </div>
 
-      
       <TabGroup
         tabs={[
           { id: 'all', label: 'All Missions' },
@@ -79,7 +75,6 @@ export default function MissionControl() {
         className={styles.tabs}
       />
 
-      
       {filteredCourses.length > 0 ? (
         <div className={styles.grid}>
           {filteredCourses.map((course) => (

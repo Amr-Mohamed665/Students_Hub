@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+﻿import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, LogOut } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { sidebarNavItems } from '../../../data/mockData';
@@ -13,20 +13,22 @@ export default function Sidebar({ isOpen, toggleMobile, isCollapsed, toggleColla
     navigate('/landing');
   };
 
+  const handleNavClick = () => {
+    if (isOpen) toggleMobile();
+  };
+
   return (
     <aside className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''} ${isOpen ? styles.mobileOpen : ''}`}>
-      
+
       <div className={styles.brand}>
         <div className={styles.logoWrapper}>S</div>
         {!isCollapsed && <span className={styles.logoText}>Students Hub</span>}
       </div>
 
-      
       <button className={styles.toggleBtn} onClick={toggleCollapse} aria-label="Toggle Sidebar">
         {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
       </button>
 
-      
       <nav className={styles.navSection}>
         {sidebarNavItems.map((item) => {
           const LucideIcon = Icons[item.icon] || Icons.HelpCircle;
@@ -37,12 +39,12 @@ export default function Sidebar({ isOpen, toggleMobile, isCollapsed, toggleColla
               label={item.label}
               path={item.path}
               collapsed={isCollapsed}
+              onNavigate={handleNavClick}
             />
           );
         })}
       </nav>
 
-      
       <div className={styles.sidebarFooter}>
         <button className={styles.logoutBtn} onClick={handleLogout} title="Logout">
           <LogOut size={18} />

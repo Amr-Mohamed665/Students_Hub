@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+﻿import { useMemo } from 'react';
 import styles from './StarField.module.css';
 
 export default function StarField({ count = 80 }) {

@@ -47,3 +47,16 @@
   min-height: 240px;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-3);
+    min-height: 250px;
+    gap: var(--space-3);
+  }
+
+  .chartContainer {
+    min-height: 180px;
+  }
+}
+

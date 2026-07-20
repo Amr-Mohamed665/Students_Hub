@@ -55,7 +55,7 @@
   align-items: center;
   font-size: var(--fs-sm);
   padding-bottom: var(--space-2);
-  border-bottom: 1px solid rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .infoRow:last-child {
@@ -250,7 +250,7 @@
 }
 
 .journeyTimeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 3px;
   top: var(--space-2);
@@ -307,3 +307,89 @@
   color: var(--text-secondary);
   line-height: var(--lh-relaxed);
 }
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.progressHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressLabel {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+}
+
+.progressPercentage {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.progressHint {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: var(--lh-normal);
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-4);
+  }
+
+  .tabs {
+    align-self: flex-start;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .certCard {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .certHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .infoRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+    padding-bottom: var(--space-3);
+  }
+
+  .certFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .achCard {
+    padding: var(--space-4);
+  }
+
+  .journeyTimeline {
+    padding-left: var(--space-5);
+  }
+}
+

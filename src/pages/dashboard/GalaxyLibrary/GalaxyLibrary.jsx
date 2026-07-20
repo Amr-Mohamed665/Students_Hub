@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Play, FileText, BookOpen, Clock, Star, X, ExternalLink, Search } from 'lucide-react';
 import { libraryCategories, libraryResources } from '../../../data/mockData';
 import PlanetCard from '../../../components/molecules/PlanetCard/PlanetCard';
@@ -17,7 +17,6 @@ export default function GalaxyLibrary() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  
   const allResources = Object.entries(libraryResources).flatMap(([catId, resList]) => {
     const category = categories.find((c) => c.id === catId);
     const categoryName = category ? category.name : catId;
@@ -30,7 +29,6 @@ export default function GalaxyLibrary() {
     }));
   });
 
-  
   const filteredCategories = categories.filter((cat) => {
     let matchesTab = true;
     if (activeTab === 'frameworks') matchesTab = ['react', 'nextjs'].includes(cat.id);
@@ -40,7 +38,6 @@ export default function GalaxyLibrary() {
     return matchesTab;
   });
 
-  
   const searchedResources = searchQuery.trim()
     ? allResources.filter((res) => {
         const query = searchQuery.toLowerCase();
@@ -67,7 +64,7 @@ export default function GalaxyLibrary() {
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
-              
+
               if (e.target.value.trim()) setSelectedCategory(null);
             }}
             className={styles.search}
@@ -76,7 +73,6 @@ export default function GalaxyLibrary() {
         </div>
       </div>
 
-      
       {!searchQuery.trim() ? (
         <>
           <TabGroup
@@ -107,7 +103,6 @@ export default function GalaxyLibrary() {
             ))}
           </div>
 
-          
           {selectedCategory && (
             <div className={styles.resourcePanel}>
               <div className={styles.panelHeader}>
@@ -123,38 +118,41 @@ export default function GalaxyLibrary() {
 
               <div className={styles.resourceGrid}>
                 {resources.map((res) => {
-                  const Icon = typeIcon[res.type] || FileText;
                   return (
                     <div
                       key={res.id}
                       className={styles.resourceCard}
-                      onClick={() => window.open(res.url, '_blank')}
-                      style={{ cursor: 'pointer' }}
                     >
-                      <div className={styles.resourceIcon} style={{ color: selectedCategory.color }}>
-                        <Icon size={20} />
-                      </div>
-                      <div className={styles.resourceInfo}>
-                        <div className={styles.resourceTitle}>{res.title}</div>
-                        <div className={styles.resourceMeta}>
-                          <span className={styles.metaItem}>
-                            <Clock size={11} />
-                            {res.duration}
-                          </span>
+                      {res.image && (
+                        <div className={styles.cardImageContainer}>
+                          <img
+                            src={res.image}
+                            alt={res.title}
+                            className={styles.cardImage}
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+                      <div className={styles.cardMainContent}>
+                        <div className={styles.cardCategoryRow}>
                           <Badge variant={typeColor[res.type]} size="xs">{res.type}</Badge>
                           <Badge variant={levelColor[res.level]} size="xs">{res.level}</Badge>
+                          <span className={styles.metaItem}>
+                            <Clock size={11} style={{ marginRight: '4px' }} />
+                            {res.duration}
+                          </span>
+                        </div>
+                        <h4 className={styles.cardTitle}>{res.title}</h4>
+                        {res.description && <p className={styles.cardDescription}>{res.description}</p>}
+                        <div className={styles.cardFooter}>
+                          <button
+                            className={styles.visitButton}
+                            onClick={() => window.open(res.url, '_blank')}
+                          >
+                            Visit Resource <ExternalLink size={12} style={{ marginLeft: '6px' }} />
+                          </button>
                         </div>
                       </div>
-                      <button
-                        className={styles.resourceBtn}
-                        title="Open resource"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(res.url, '_blank');
-                        }}
-                      >
-                        <ExternalLink size={14} />
-                      </button>
                     </div>
                   );
                 })}
@@ -162,7 +160,6 @@ export default function GalaxyLibrary() {
             </div>
           )}
 
-          
           {!selectedCategory && (
             <div className={styles.featuredSection}>
               <div className={styles.featuredHeader}>
@@ -199,7 +196,7 @@ export default function GalaxyLibrary() {
           )}
         </>
       ) : (
-        
+
         <div className={styles.resourcePanel}>
           <div className={styles.panelHeader}>
             <div className={styles.panelTitle}>
@@ -215,41 +212,44 @@ export default function GalaxyLibrary() {
           {searchedResources.length > 0 ? (
             <div className={styles.resourceGrid}>
               {searchedResources.map((res) => {
-                const Icon = typeIcon[res.type] || FileText;
                 return (
                   <div
                     key={res.id}
                     className={styles.resourceCard}
-                    onClick={() => window.open(res.url, '_blank')}
-                    style={{ cursor: 'pointer' }}
                   >
-                    <div className={styles.resourceIcon} style={{ color: res.categoryColor }}>
-                      <Icon size={20} />
-                    </div>
-                    <div className={styles.resourceInfo}>
-                      <div className={styles.resourceTitle}>{res.title}</div>
-                      <div className={styles.resourceMeta}>
-                        <span className={styles.metaItem}>
-                          <Clock size={11} />
-                          {res.duration}
-                        </span>
-                        <Badge variant={typeColor[res.type]} size="xs">{res.type}</Badge>
-                        <Badge variant={levelColor[res.level]} size="xs">{res.level}</Badge>
+                    {res.image && (
+                      <div className={styles.cardImageContainer}>
+                        <img
+                          src={res.image}
+                          alt={res.title}
+                          className={styles.cardImage}
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className={styles.cardMainContent}>
+                      <div className={styles.cardCategoryRow}>
                         <span className={styles.searchCategoryTag} style={{ color: res.categoryColor, fontSize: 'var(--fs-xs)', fontWeight: '600' }}>
                           {res.categoryName}
                         </span>
+                        <Badge variant={typeColor[res.type]} size="xs">{res.type}</Badge>
+                        <Badge variant={levelColor[res.level]} size="xs">{res.level}</Badge>
+                        <span className={styles.metaItem}>
+                          <Clock size={11} style={{ marginRight: '4px' }} />
+                          {res.duration}
+                        </span>
+                      </div>
+                      <h4 className={styles.cardTitle}>{res.title}</h4>
+                      {res.description && <p className={styles.cardDescription}>{res.description}</p>}
+                      <div className={styles.cardFooter}>
+                        <button
+                          className={styles.visitButton}
+                          onClick={() => window.open(res.url, '_blank')}
+                        >
+                          Visit Resource <ExternalLink size={12} style={{ marginLeft: '6px' }} />
+                        </button>
                       </div>
                     </div>
-                    <button
-                      className={styles.resourceBtn}
-                      title="Open resource"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(res.url, '_blank');
-                      }}
-                    >
-                      <ExternalLink size={14} />
-                    </button>
                   </div>
                 );
               })}

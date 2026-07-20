@@ -11,9 +11,10 @@ export default function ProfileHeader({ user, onEdit }) {
 
   return (
     <div className={styles.headerCard}>
-      
+
       <div className={styles.avatarSection}>
         <Avatar
+          src={user.avatar}
           name={user.name}
           size="xxl"
           glow
@@ -29,17 +30,20 @@ export default function ProfileHeader({ user, onEdit }) {
         </Button>
       </div>
 
-      
       <div className={styles.profileInfo}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-4)' }}>
           <div className={styles.infoBlock}>
             <h2 className={styles.name}>{user.name}</h2>
             <div className={styles.title}>{user.title}</div>
             <div className={styles.location}>{user.location}</div>
+            {user.currentPhase && (
+              <div className={styles.currentPhase}>
+                <span className={styles.phaseLabel}>Current Phase:</span> {user.currentPhase}
+              </div>
+            )}
             <p className={styles.bio}>{user.bio}</p>
           </div>
-          
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-4)' }}>
             <div className={styles.statsGrid}>
               <div className={styles.statItem}>
@@ -60,7 +64,6 @@ export default function ProfileHeader({ user, onEdit }) {
               </div>
             </div>
 
-            
             <div className={styles.xpProgressSection}>
               <div className={styles.xpDetails}>
                 <span className={styles.xpLabel}>Next Level</span>

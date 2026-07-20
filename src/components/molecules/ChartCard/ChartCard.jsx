@@ -1,4 +1,4 @@
-import styles from './ChartCard.module.css';
+﻿import styles from './ChartCard.module.css';
 
 export default function ChartCard({
   title,

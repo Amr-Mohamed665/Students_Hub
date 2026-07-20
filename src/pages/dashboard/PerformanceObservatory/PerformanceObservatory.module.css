@@ -61,7 +61,7 @@
   .chartsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .fullWidthChart {
     grid-column: span 2;
   }

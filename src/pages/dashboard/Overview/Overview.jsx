@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+﻿import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Play, ArrowUpRight, Clock, BookOpen, X, CheckCircle, Zap, Star, BookMarked, Trophy, AlertCircle, RefreshCw, Target } from 'lucide-react';
@@ -61,16 +61,16 @@ export default function Overview() {
 
   return (
     <div className={styles.container}>
-      
+
       <div className={styles.welcomeBanner}>
         <div>
           <h2 className={styles.welcomeTitle}>Welcome back, {user?.name || 'Amr Mohamed Ali'}! 👋</h2>
           <p className={styles.welcomeSubtitle}>All systems nominal. Ready to resume learning path missions?</p>
         </div>
         <div className={styles.quickLaunch}>
-          <Button 
-            variant="primary" 
-            icon={<Play size={16} />} 
+          <Button
+            variant="primary"
+            icon={<Play size={16} />}
             onClick={() => {
               const active = activeCourses[0] || courses[0];
               if (active && active.videoUrl) {
@@ -85,12 +85,10 @@ export default function Overview() {
         </div>
       </div>
 
-      
       <StatsRow stats={dashboardStats} />
 
-      
       <div className={styles.mainGrid}>
-        
+
         <ChartCard
           title="Study Velocity Index"
           subtitle="Hours dedicated per day this solar cycle"
@@ -119,7 +117,6 @@ export default function Overview() {
           </ResponsiveContainer>
         </ChartCard>
 
-        
         <div className={styles.logCard}>
           <div className={styles.logHeader}>
             <h3>Cosmic Logs (Recent Logs)</h3>
@@ -141,7 +138,6 @@ export default function Overview() {
         </div>
       </div>
 
-      
       <div className={styles.bottomSection}>
         <div className={styles.sectionHeader}>
           <h3>Active Missions</h3>
@@ -162,7 +158,7 @@ export default function Overview() {
                   {course.duration}
                 </span>
               </div>
-              
+
               <h4 className={styles.courseTitle}>{course.title}</h4>
               <p className={styles.courseInstructor}>by {course.instructor}</p>
 
@@ -178,8 +174,8 @@ export default function Overview() {
 
               <div className={styles.courseFooter}>
                 <span className={styles.xpText}>+{course.xp} XP</span>
-                <button 
-                  className={styles.resumeBtn} 
+                <button
+                  className={styles.resumeBtn}
                   onClick={() => {
                     if (course.videoUrl) {
                       window.open(course.videoUrl, '_blank');
@@ -196,7 +192,6 @@ export default function Overview() {
         </div>
       </div>
 
-      
       <Modal
         isOpen={showLogsModal}
         onClose={() => setShowLogsModal(false)}

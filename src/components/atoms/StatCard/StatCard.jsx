@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, Activity } from 'lucide-react';
+﻿import { TrendingUp, TrendingDown, Activity } from 'lucide-react';
 import styles from './StatCard.module.css';
 
 const iconColors = ['purple', 'blue', 'cyan', 'green', 'orange'];
