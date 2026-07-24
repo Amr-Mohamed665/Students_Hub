@@ -6,12 +6,17 @@ export const currentStudent = {
   id: "stu_10293",
   fullName: "Youssef El-Sayed",
   handle: "@youssef.codes",
+  email: "youssef.elsayed@cu.edu.eg",
+  phone: "+20 100 123 4567",
   role: "Computer Engineering, Year 3",
   university: "Cairo University",
   location: "Cairo, Egypt",
   avatarUrl: "https://i.pravatar.cc/160?img=13",
   coverColor: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
   joinedOn: "September 2023",
+  learningTrack: "Fullstack Development",
+  currentPhase: "Phase 3 — Backend & Systems",
+  trackProgress: 58,
   bio:
     "Backend-leaning full-stack student who likes turning messy course notes into working apps. Currently obsessed with distributed systems and bad puns about them.",
   skills: ["React", "Node.js", "PostgreSQL", "Docker", "System Design", "Figma"],
@@ -21,6 +26,22 @@ export const currentStudent = {
     portfolio: "youssef.dev",
   },
 };
+
+export const learningTrackOptions = [
+  "Fullstack Development",
+  "Front-end Development",
+  "Back-end Development",
+  "Mobile Development",
+  "Data Science",
+];
+
+export const currentPhaseOptions = [
+  "Phase 1 — Foundations",
+  "Phase 2 — Core Concepts",
+  "Phase 3 — Backend & Systems",
+  "Phase 4 — Advanced Projects",
+  "Phase 5 — Capstone",
+];
 
 export const studentStats = [
   { id: "gpa", label: "Current GPA", value: "3.78", trend: "+0.12" },

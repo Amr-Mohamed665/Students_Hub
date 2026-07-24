@@ -95,6 +95,59 @@
   color: var(--text-secondary);
 }
 
+.trackBadge {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--neon-violet);
+  background: var(--primary-purple-light);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+/* ---------- Overall track progress ---------- */
+
+.trackProgressCard {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-6);
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+
+.trackProgressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.trackProgressLabel {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.trackProgressPhase {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.trackProgressPercent {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-extrabold);
+  color: var(--neon-cyan);
+}
+
 .primaryButton {
   border: none;
   background: var(--gradient-primary);
@@ -628,5 +681,185 @@
 
   .settingsRow {
     align-items: flex-start;
+  }
+}
+
+/* ---------- Edit Profile modal ---------- */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 16, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  z-index: 1000;
+}
+
+.modalCard {
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-glow-purple-lg);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.modalCloseButton {
+  border: none;
+  background: var(--bg-surface-light);
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.modalCloseButton:hover {
+  color: var(--text-primary);
+  background: var(--primary-purple-light);
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.avatarEditRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.avatarEditPreview {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  background: var(--bg-surface);
+}
+
+.avatarEditPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.secondaryButton {
+  border: var(--glass-border);
+  background: var(--bg-surface-light);
+  color: var(--text-primary);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.secondaryButton:hover {
+  background: var(--primary-purple-light);
+  color: var(--neon-violet);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 560px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+}
+
+.formFieldFull {
+  grid-column: 1 / -1;
+}
+
+.formField input,
+.formField select,
+.formField textarea {
+  font-family: var(--font-family);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  background: var(--bg-surface-light);
+  border: var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  resize: vertical;
+}
+
+.formField input:focus,
+.formField select:focus,
+.formField textarea:focus {
+  outline: none;
+  border-color: var(--primary-purple);
+  box-shadow: var(--shadow-glow-purple);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 560px) {
+  .modalActions {
+    flex-direction: column-reverse;
+  }
+
+  .modalActions button {
+    width: 100%;
+  }
+
+  .avatarEditRow {
+    flex-wrap: wrap;
   }
 }
