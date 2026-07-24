@@ -1,6 +1,7 @@
 // src/pages/Profile/ProfilePage.jsx
 import { useMemo, useState } from "react";
 import styles from "./ProfilePage.module.css";
+import EditProfileModal from "./EditProfileModal";
 import {
   currentStudent,
   studentStats,
@@ -9,6 +10,8 @@ import {
   activityFeed,
   portfolioProjects,
   notificationDefaults,
+  learningTrackOptions,
+  currentPhaseOptions,
 } from "./profileData";
 
 const TABS = [
@@ -43,6 +46,26 @@ function StatCard({ label, value, trend }) {
       <span className={styles.statValue}>{value}</span>
       <span className={styles.statLabel}>{label}</span>
       <span className={styles.statTrend}>{trend}</span>
+    </div>
+  );
+}
+
+function TrackProgressBar({ learningTrack, currentPhase, progress }) {
+  return (
+    <div className={styles.trackProgressCard}>
+      <div className={styles.trackProgressHeader}>
+        <div>
+          <p className={styles.trackProgressLabel}>{learningTrack} Track</p>
+          <span className={styles.trackProgressPhase}>{currentPhase}</span>
+        </div>
+        <span className={styles.trackProgressPercent}>{progress}%</span>
+      </div>
+      <div className={styles.progressTrack}>
+        <div
+          className={styles.progressFill}
+          style={{ width: `${progress}%` }}
+        />
+      </div>
     </div>
   );
 }
@@ -141,6 +164,8 @@ export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState("overview");
   const [avatarFailedToLoad, setAvatarFailedToLoad] = useState(false);
   const [notificationSettings, setNotificationSettings] = useState(notificationDefaults);
+  const [student, setStudent] = useState(currentStudent);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const earnedBadgeCount = useMemo(
     () => achievements.filter((badge) => badge.earned).length,
@@ -154,20 +179,28 @@ export default function ProfilePage() {
     }));
   };
 
+  const handleSaveProfile = (updatedFields) => {
+    setStudent((previousStudent) => ({ ...previousStudent, ...updatedFields }));
+    // A newly uploaded photo should get a fair shot at loading again,
+    // even if the previous remote avatar had failed.
+    setAvatarFailedToLoad(false);
+    setIsEditModalOpen(false);
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <section
         className={styles.coverBanner}
-        style={{ backgroundImage: currentStudent.coverColor }}
+        style={{ backgroundImage: student.coverColor }}
       >
         <div className={styles.profileHeader}>
           <div className={styles.avatarWrapper}>
             {avatarFailedToLoad ? (
-              <InitialsFallback name={currentStudent.fullName} />
+              <InitialsFallback name={student.fullName} />
             ) : (
               <img
-                src={currentStudent.avatarUrl}
-                alt={currentStudent.fullName}
+                src={student.avatarUrl}
+                alt={student.fullName}
                 className={styles.avatarImage}
                 onError={() => setAvatarFailedToLoad(true)}
               />
@@ -175,17 +208,28 @@ export default function ProfilePage() {
           </div>
 
           <div className={styles.identityBlock}>
-            <h1 className={styles.fullName}>{currentStudent.fullName}</h1>
-            <p className={styles.handle}>{currentStudent.handle}</p>
+            <h1 className={styles.fullName}>{student.fullName}</h1>
+            <p className={styles.handle}>{student.handle}</p>
             <p className={styles.roleLine}>
-              {currentStudent.role} · {currentStudent.university}
+              {student.role} · {student.university}
             </p>
+            <span className={styles.trackBadge}>{student.learningTrack}</span>
           </div>
 
-          <button type="button" className={styles.primaryButton}>
+          <button
+            type="button"
+            className={styles.primaryButton}
+            onClick={() => setIsEditModalOpen(true)}
+          >
             Edit Profile
           </button>
         </div>
+
+        <TrackProgressBar
+          learningTrack={student.learningTrack}
+          currentPhase={student.currentPhase}
+          progress={student.trackProgress}
+        />
       </section>
 
       <nav className={styles.tabBar} aria-label="Profile sections">
@@ -214,18 +258,18 @@ export default function ProfilePage() {
 
             <div className={styles.bioCard}>
               <h3>About</h3>
-              <p>{currentStudent.bio}</p>
+              <p>{student.bio}</p>
               <div className={styles.tagRow}>
-                {currentStudent.skills.map((skill) => (
+                {student.skills.map((skill) => (
                   <span key={skill} className={styles.tagPill}>
                     {skill}
                   </span>
                 ))}
               </div>
               <ul className={styles.socialList}>
-                <li>GitHub · {currentStudent.socials.github}</li>
-                <li>LinkedIn · {currentStudent.socials.linkedin}</li>
-                <li>Portfolio · {currentStudent.socials.portfolio}</li>
+                <li>GitHub · {student.socials.github}</li>
+                <li>LinkedIn · {student.socials.linkedin}</li>
+                <li>Portfolio · {student.socials.portfolio}</li>
               </ul>
             </div>
 
@@ -318,6 +362,15 @@ export default function ProfilePage() {
           </div>
         )}
       </main>
+
+      <EditProfileModal
+        isOpen={isEditModalOpen}
+        student={student}
+        learningTrackOptions={learningTrackOptions}
+        currentPhaseOptions={currentPhaseOptions}
+        onCancel={() => setIsEditModalOpen(false)}
+        onSave={handleSaveProfile}
+      />
     </div>
   );
 }
